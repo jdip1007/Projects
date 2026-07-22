@@ -6,7 +6,7 @@
 set -e
 
 REPO_DIR="$HOME/github-pages"
-REPO_URL="git@github.com:jdip1007/jdip1007.github.io.git"
+REPO_URL="git@github.com:jdip1007/Projects.git"
 BRANCH="main"
 
 echo "🚀 Deploying to GitHub Pages..."
