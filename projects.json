@@ -23,5 +23,12 @@
     "page": null,
     "github": "https://github.com/jdip1007/Hermes-Playground",
     "tags": ["AI Agents", "Translation", "Research"]
+  },
+  {
+    "id": "sand-game",
+    "title": "Falling Sand Physics Simulation",
+    "description": "Interactive cellular automata sandbox with realistic physics. Simulate falling sand, flowing water, solid walls, and dissolving acid in a 150x150 grid with smooth real-time rendering.",
+    "page": "sand-game.html",
+    "tags": ["JavaScript", "Canvas", "Physics", "Simulation", "Interactive"]
   }
 ]
