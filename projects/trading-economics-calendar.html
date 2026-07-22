@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trading Economics Calendar | jdip1007</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        header .breadcrumb {
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header .breadcrumb a {
+            color: white;
+            text-decoration: none;
+        }
+        
+        header .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header .subtitle {
+            opacity: 0.8;
+            font-size: 1.1rem;
+        }
+        
+        nav {
+            background: #34495e;
+            padding: 1rem 0;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        nav a:hover {
+            background: #455a64;
+        }
+        
+        main {
+            padding: 3rem 0;
+        }
+        
+        .project-header {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .project-header h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .project-header .meta {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .project-header .meta-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .project-header .meta-item strong {
+            display: block;
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+        
+        .project-header .links {
+            margin-top: 1.5rem;
+        }
+        
+        .project-header .links a {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-right: 0.5rem;
+            transition: background 0.3s;
+        }
+        
+        .project-header .links a:hover {
+            background: #2980b9;
+        }
+        
+        .project-header .links a.secondary {
+            background: #95a5a6;
+        }
+        
+        .project-header .links a.secondary:hover {
+            background: #7f8c8d;
+        }
+        
+        .section {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .section h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .section p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .section ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .section li {
+            margin-bottom: 0.5rem;
+            color: #555;
+        }
+        
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: #ecf0f1;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: #555;
+        }
+        
+        .screenshot {
+            width: 100%;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+            
+            .project-header .meta {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="breadcrumb">
+                <a href="../index.html">← Back to Projects</a>
+            </div>
+            <h1>Trading Economics Calendar</h1>
+            <p class="subtitle">Daily economic data tracking and monitoring system</p>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="../index.html">Projects Home</a></li>
+                <li><a href="https://github.com/jdip1007">GitHub</a></li>
+                <li><a href="https://jdip1007.github.io/Neural-Nexus/">Neural Nexus</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <div class="project-header">
+                <h2>Overview</h2>
+                <p>
+                    The Trading Economics Calendar is an automated system that fetches, monitors, and tracks economic indicators from the Trading Economics API. It provides daily updates and insights on economic events, indicators, and forecasts from around the world.
+                </p>
+                
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">API Integration</span>
+                    <span class="tag">Data Processing</span>
+                    <span class="tag">Automation</span>
+                    <span class="tag">Economic Data</span>
+                </div>
+                
+                <div class="meta">
+                    <div class="meta-item">
+                        <strong>Status</strong>
+                        <span>Active</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>Last Updated</strong>
+                        <span>July 2024</span>
+                    </div>
+                    <div class="meta-item">
+                        <strong>License</strong>
+                        <span>MIT</span>
+                    </div>
+                </div>
+                
+                <div class="links">
+                    <a href="https://github.com/jdip1007/trading_economics_calendar">View on GitHub</a>
+                    <a href="https://github.com/jdip1007/trading_economics_calendar/issues" class="secondary">Report Issues</a>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h3>Features</h3>
+                <ul>
+                    <li>Automated daily data fetching from Trading Economics API</li>
+                    <li>Comprehensive economic calendar with events, indicators, and forecasts</li>
+                    <li>Real-time monitoring of economic releases</li>
+                    <li>Automated alerts and notifications</li>
+                    <li>Data export and analysis capabilities</li>
+                    <li>Historical data tracking and trend analysis</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h3>Technical Details</h3>
+                <p>
+                    Built with Python and integrated with the Trading Economics API, this system runs automated daily jobs to fetch and process economic data. The data is structured for easy analysis and can be exported to various formats for further processing.
+                </p>
+                <p>
+                    The system includes error handling, retry mechanisms, and comprehensive logging to ensure reliable operation and easy troubleshooting.
+                </p>
+            </div>
+            
+            <div class="section">
+                <h3>Use Cases</h3>
+                <ul>
+                    <li>Track major economic indicators (GDP, inflation, employment, etc.)</li>
+                    <li>Monitor central bank announcements and policy changes</li>
+                    <li>Analyze economic trends across different countries</li>
+                    <li>Stay informed about market-moving economic events</li>
+                    <li>Support investment and trading decisions with economic data</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h3>Getting Started</h3>
+                <p>
+                    To use this project, you'll need:
+                </p>
+                <ul>
+                    <li>Python 3.7 or higher</li>
+                    <li>Trading Economics API key</li>
+                    <li>Required Python packages (listed in requirements.txt)</li>
+                </ul>
+                <p>
+                    Clone the repository and follow the setup instructions in the README to configure the API and run the data fetching jobs.
+                </p>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 jdip1007. Built with simple HTML & CSS.</p>
+        </div>
+    </footer>
+</body>
+</html>

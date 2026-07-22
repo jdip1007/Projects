@@ -1,0 +1,27 @@
+[
+  {
+    "id": "trading-economics-calendar",
+    "title": "Trading Economics Calendar",
+    "description": "Daily economic data tracking system that fetches and monitors economic indicators from Trading Economics API. Provides automated daily updates and insights.",
+    "page": "trading-economics-calendar.html",
+    "github": "https://github.com/jdip1007/trading_economics_calendar",
+    "tags": ["Python", "API", "Data", "Automation"]
+  },
+  {
+    "id": "neural-nexus",
+    "title": "Neural Nexus",
+    "description": "Multi-domain knowledge base system built with MkDocs Material, featuring interlinked content, D3.js visualization, and automated content management.",
+    "page": null,
+    "github": "https://github.com/jdip1007/Neural-Nexus",
+    "demo": "https://jdip1007.github.io/Neural-Nexus/",
+    "tags": ["Documentation", "Knowledge Base", "MkDocs", "Visualization"]
+  },
+  {
+    "id": "hermes-playground",
+    "title": "Hermes Playground",
+    "description": "Experimental knowledge base and translation system exploring AI agent capabilities, multilingual content processing, and automated workflows.",
+    "page": null,
+    "github": "https://github.com/jdip1007/Hermes-Playground",
+    "tags": ["AI Agents", "Translation", "Research"]
+  }
+]
