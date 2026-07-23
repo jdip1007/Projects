@@ -520,12 +520,9 @@
         
         // Process sand physics
         function processSand(x, y) {
-            const below = getCell(x, y + 1);
-            const belowLeft = getCell(x - 1, y + 1);
-            const belowRight = getCell(x + 1, y + 1);
-            
             // Try to fall straight down
-            if (canDisplace(SAND, below)) {
+            if (canDisplace(SAND, getCell(x, y + 1))) {
+                const below = getCell(x, y + 1);
                 setCell(x, y + 1, SAND);
                 if (below !== EMPTY) {
                     setCell(x, y, below); // Move displaced material up
@@ -536,10 +533,10 @@
             }
             
             // Try to slide diagonally (randomize left/right first)
-            const directions = Math.random() < 0.5 ? [[-1, belowLeft], [1, belowRight]] : [[1, belowRight], [-1, belowLeft]];
-            
-            for (const [dx, belowDiagonal] of directions) {
-                if (canDisplace(SAND, belowDiagonal)) {
+            const directions = Math.random() < 0.5 ? [-1, 1] : [1, -1];
+            for (const dx of directions) {
+                if (canDisplace(SAND, getCell(x + dx, y + 1))) {
+                    const belowDiagonal = getCell(x + dx, y + 1);
                     setCell(x + dx, y + 1, SAND);
                     if (belowDiagonal !== EMPTY) {
                         setCell(x, y, belowDiagonal);
@@ -556,12 +553,6 @@
         
         // Process water physics
         function processWater(x, y, material) {
-            const below = getCell(x, y + 1);
-            const belowLeft = getCell(x - 1, y + 1);
-            const belowRight = getCell(x + 1, y + 1);
-            const left = getCell(x - 1, y);
-            const right = getCell(x + 1, y);
-            
             // Try to fall straight down
             if (isEmpty(x, y + 1)) {
                 setCell(x, y + 1, material);
@@ -570,8 +561,8 @@
             }
             
             // Try to fall diagonally (randomize left/right first)
-            const diagonalDirections = Math.random() < 0.5 ? [[-1, belowLeft], [1, belowRight]] : [[1, belowRight], [-1, belowLeft]];
-            for (const [dx, belowDiagonal] of diagonalDirections) {
+            const diagonalDirs = Math.random() < 0.5 ? [-1, 1] : [1, -1];
+            for (const dx of diagonalDirs) {
                 if (isEmpty(x + dx, y + 1)) {
                     setCell(x + dx, y + 1, material);
                     setCell(x, y, EMPTY);
@@ -580,8 +571,8 @@
             }
             
             // Spread horizontally (randomize left/right first)
-            const horizontalDirections = Math.random() < 0.5 ? [[-1, left], [1, right]] : [[1, right], [-1, left]];
-            for (const [dx, adjacent] of horizontalDirections) {
+            const horizontalDirs = Math.random() < 0.5 ? [-1, 1] : [1, -1];
+            for (const dx of horizontalDirs) {
                 if (isEmpty(x + dx, y)) {
                     setCell(x + dx, y, material);
                     setCell(x, y, EMPTY);
@@ -621,14 +612,16 @@
             }
             
             // If nothing to dissolve, move like water
+            // Try to fall straight down
             if (isEmpty(x, y + 1)) {
                 setCell(x, y + 1, ACID);
                 setCell(x, y, EMPTY);
                 return;
             }
             
-            const diagonalDirections = Math.random() < 0.5 ? [[-1, belowLeft], [1, belowRight]] : [[1, belowRight], [-1, belowLeft]];
-            for (const [dx, belowDiagonal] of diagonalDirections) {
+            // Try to fall diagonally (randomize left/right first)
+            const diagonalDirs = Math.random() < 0.5 ? [-1, 1] : [1, -1];
+            for (const dx of diagonalDirs) {
                 if (isEmpty(x + dx, y + 1)) {
                     setCell(x + dx, y + 1, ACID);
                     setCell(x, y, EMPTY);
@@ -636,8 +629,9 @@
                 }
             }
             
-            const horizontalDirections = Math.random() < 0.5 ? [[-1, left], [1, right]] : [[1, right], [-1, left]];
-            for (const [dx, adjacent] of horizontalDirections) {
+            // Spread horizontally (randomize left/right first)
+            const horizontalDirs = Math.random() < 0.5 ? [-1, 1] : [1, -1];
+            for (const dx of horizontalDirs) {
                 if (isEmpty(x + dx, y)) {
                     setCell(x + dx, y, ACID);
                     setCell(x, y, EMPTY);
