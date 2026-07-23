@@ -498,9 +498,12 @@
             }
         }
         
-        // Check if cell is empty
+        // Check if cell is empty (within bounds)
         function isEmpty(x, y) {
-            return getCell(x, y) === EMPTY;
+            if (x < 0 || x >= GRID_WIDTH || y < 0 || y >= GRID_HEIGHT) {
+                return false; // Out of bounds is not empty
+            }
+            return grid[y][x] === EMPTY;
         }
         
         // Check if cell is liquid (water or acid)
@@ -592,30 +595,28 @@
         
         // Process acid physics (with dissolve effect)
         function processAcid(x, y) {
-            const below = getCell(x, y + 1);
-            const belowLeft = getCell(x - 1, y + 1);
-            const belowRight = getCell(x + 1, y + 1);
-            const left = getCell(x - 1, y);
-            const right = getCell(x + 1, y);
-            const above = getCell(x, y - 1);
-            
-            // Check for adjacent materials to dissolve
+            // Check for adjacent materials to dissolve (only within grid bounds)
             const neighbors = [
-                {x: x, y: y + 1, mat: below},     // below
-                {x: x - 1, y: y + 1, mat: belowLeft}, // below-left
-                {x: x + 1, y: y + 1, mat: belowRight}, // below-right
-                {x: x - 1, y: y, mat: left},     // left
-                {x: x + 1, y: y, mat: right},    // right
-                {x: x, y: y - 1, mat: above}     // above
+                {x: x, y: y + 1},     // below
+                {x: x - 1, y: y + 1}, // below-left
+                {x: x + 1, y: y + 1}, // below-right
+                {x: x - 1, y: y},     // left
+                {x: x + 1, y: y},     // right
+                {x: x, y: y - 1}      // above
             ];
             
-            // Try to dissolve adjacent sand or wall
+            // Try to dissolve adjacent sand or wall (only within bounds)
             for (const neighbor of neighbors) {
-                if (neighbor.mat === SAND || neighbor.mat === WALL) {
-                    // Dissolve both acid and target
-                    setCell(neighbor.x, neighbor.y, EMPTY);
-                    setCell(x, y, EMPTY);
-                    return;
+                // Check if neighbor is within grid bounds
+                if (neighbor.x >= 0 && neighbor.x < GRID_WIDTH && 
+                    neighbor.y >= 0 && neighbor.y < GRID_HEIGHT) {
+                    const neighborMaterial = grid[neighbor.y][neighbor.x];
+                    if (neighborMaterial === SAND || neighborMaterial === WALL) {
+                        // Dissolve both acid and target
+                        setCell(neighbor.x, neighbor.y, EMPTY);
+                        setCell(x, y, EMPTY);
+                        return;
+                    }
                 }
             }
             
