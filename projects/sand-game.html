@@ -832,8 +832,9 @@
                 // Render kernel: reads grid, outputs RGBA pixels for each canvas pixel
                 // setGraphical(true) makes GPU.js render directly to its own canvas
                 // NOTE: GPU.js graphical kernels cannot use 'return' — must use this.color() for all paths
-                // NOTE: GPU.js setGraphical(true) maps thread.y=0 to canvas TOP row (already flipped internally).
-                //       So gy = thread.y / cellSize correctly maps canvas row → grid row (both top-down).
+                // NOTE: GPU.js setGraphical(true) + drawImage has confusing Y-axis behavior across browsers.
+                //       Use setGraphical(false) instead — kernel returns Float32Array of RGBA, we write to canvas manually.
+                //       This gives us full control over Y-axis orientation.
                 gpuKernel = gpuInstance.createKernel(function(grid, gridWidth, gridHeight, cellSize, colorR, colorG, colorB) {
                     const gx = Math.floor(this.thread.x / cellSize);
                     const gy = Math.floor(this.thread.y / cellSize);
@@ -851,7 +852,7 @@
                     this.color(r, g, b, 1);
                 })
                 .setOutput([canvas.width, canvas.height])
-                .setGraphical(true);
+                .setGraphical(false);
                 
                 gpuAvailable = true;
                 console.log('GPU mode initialized successfully');
@@ -877,13 +878,28 @@
             for (let i = 0; i < COLOR_B.length; i++) colorBFloat[i] = COLOR_B[i];
             
             try {
-                gpuKernel(gridFloat, GRID_WIDTH, GRID_HEIGHT, CELL_SIZE, colorRFloat, colorGFloat, colorBFloat);
-                // Copy GPU kernel canvas to our main canvas
-                // GPU.js WebGL framebuffer has Y=0 at bottom (OpenGL convention),
-                // but canvas 2D context expects Y=0 at top.
-                // drawImage automatically handles this flip for us since the kernel
-                // canvas is a regular HTML canvas element.
-                ctx.drawImage(gpuKernel.canvas, 0, 0);
+                // Kernel returns 2D array: output[y][x] = [r, g, b, a] (floats 0-1)
+                // GPU.js thread.y=0 = OpenGL bottom row, so output[0] = bottom of screen
+                // We need to flip Y when writing to canvas (canvas row 0 = top of screen)
+                const output = gpuKernel(gridFloat, GRID_WIDTH, GRID_HEIGHT, CELL_SIZE, colorRFloat, colorGFloat, colorBFloat);
+                const imageData = ctx.createImageData(canvas.width, canvas.height);
+                const buf32 = new Uint32Array(imageData.data.buffer);
+                const h = canvas.height;
+                const w = canvas.width;
+                
+                for (let y = 0; y < h; y++) {
+                    // GPU output row 0 = screen bottom; canvas row 0 = screen top
+                    // Flip: canvas row y reads from GPU output row (h - y - 1)
+                    const gpuRow = output[h - y - 1];
+                    for (let x = 0; x < w; x++) {
+                        const pixel = gpuRow[x]; // [r, g, b, a] floats
+                        const r = (pixel[0] * 255) | 0;
+                        const g = (pixel[1] * 255) | 0;
+                        const b = (pixel[2] * 255) | 0;
+                        buf32[y * w + x] = (255 << 24) | (r << 16) | (g << 8) | b;
+                    }
+                }
+                ctx.putImageData(imageData, 0, 0);
             } catch (e) {
                 // GPU failed — fall back to CPU render for this frame
                 render();
