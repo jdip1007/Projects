@@ -440,6 +440,7 @@
         const GRID_WIDTH = 150;
         const GRID_HEIGHT = 150;
         const CELL_SIZE = canvas.width / GRID_WIDTH;
+        const GRID_SIZE = GRID_WIDTH * GRID_HEIGHT;
         
         // Material types
         const EMPTY = 0;
@@ -448,18 +449,14 @@
         const WALL = 3;
         const ACID = 4;
         
-        // Material colors (improved visibility)
-        const COLORS = {
-            [EMPTY]: '#1e1e24',
-            [SAND]: '#e9c46a',
-            [WATER]: '#4a9dc9',  // Brighter, more visible blue
-            [WALL]: '#6c757d',
-            [ACID]: '#00ff66'   // More visible neon green
-        };
+        // Pre-computed RGB color table (no parsing at runtime)
+        const COLOR_R = [30, 233, 74, 108, 0];
+        const COLOR_G = [30, 196, 157, 117, 255];
+        const COLOR_B = [36, 106, 201, 125, 102];
         
-        // Simulation state - single grid with moved tracking
-        let grid = [];
-        let updated = [];  // Track which cells were already moved this frame
+        // Simulation state - flat arrays for speed
+        let grid = new Uint8Array(GRID_SIZE);
+        let updated = new Uint8Array(GRID_SIZE);
         let currentMaterial = SAND;
         let brushSize = 3;
         let isMouseDown = false;
@@ -468,303 +465,233 @@
         let frameCount = 0;
         let lastTime = performance.now();
         let fps = 0;
+        let particleCount = 0;
+        
+        // Pre-allocated x-order arrays (avoid allocation every row)
+        const xOrderForward = new Uint8Array(GRID_WIDTH);
+        const xOrderReverse = new Uint8Array(GRID_WIDTH);
+        for (let i = 0; i < GRID_WIDTH; i++) {
+            xOrderForward[i] = i;
+            xOrderReverse[i] = GRID_WIDTH - 1 - i;
+        }
         
         // Initialize grids
         function initGrid() {
-            grid = [];
-            updated = [];
-            for (let y = 0; y < GRID_HEIGHT; y++) {
-                grid[y] = [];
-                updated[y] = [];
-                for (let x = 0; x < GRID_WIDTH; x++) {
-                    grid[y][x] = EMPTY;
-                    updated[y][x] = false;
-                }
-            }
+            grid.fill(EMPTY);
+            updated.fill(0);
+            particleCount = 0;
         }
         
-        // Get cell at position with bounds checking
+        // Flat grid access helpers
+        function idx(x, y) { return y * GRID_WIDTH + x; }
+        
         function getCell(x, y) {
-            if (x < 0 || x >= GRID_WIDTH || y < 0 || y >= GRID_HEIGHT) {
-                return WALL;
-            }
-            return grid[y][x];
+            if (x < 0 || x >= GRID_WIDTH || y < 0 || y >= GRID_HEIGHT) return WALL;
+            return grid[idx(x, y)];
         }
         
-        // Set cell in grid (in-place, single grid)
-        function setCell(x, y, material) {
-            if (x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT) {
-                grid[y][x] = material;
-                updated[y][x] = true;
-            }
-        }
-        
-        // Check if cell is empty and available
         function isEmpty(x, y) {
-            if (x < 0 || x >= GRID_WIDTH || y < 0 || y >= GRID_HEIGHT) {
-                return false;
-            }
-            return grid[y][x] === EMPTY;
+            if (x < 0 || x >= GRID_WIDTH || y < 0 || y >= GRID_HEIGHT) return false;
+            return grid[idx(x, y)] === EMPTY;
         }
         
-        // Check if cell is available (empty and not already moved this frame)
-        function canMoveTo(x, y) {
-            if (x < 0 || x >= GRID_WIDTH || y < 0 || y >= GRID_HEIGHT) {
-                return false;
-            }
-            return grid[y][x] === EMPTY && !updated[y][x];
-        }
-        
-        // Swap two cells in the grid
-        function swapCells(x1, y1, x2, y2) {
-            if (x1 >= 0 && x1 < GRID_WIDTH && y1 >= 0 && y1 < GRID_HEIGHT &&
-                x2 >= 0 && x2 < GRID_WIDTH && y2 >= 0 && y2 < GRID_HEIGHT) {
-                const temp = grid[y1][x1];
-                grid[y1][x1] = grid[y2][x2];
-                grid[y2][x2] = temp;
-                updated[y1][x1] = true;
-                updated[y2][x2] = true;
-            }
-        }
-        
-        // Move particle from one cell to empty cell
-        function moveParticle(fromX, fromY, toX, toY, material) {
-            grid[toY][toX] = material;
-            grid[fromY][fromX] = EMPTY;
-            updated[toY][toX] = true;
-            updated[fromY][fromX] = true;
-        }
-        
-        // Check if cell is liquid (water or acid)
         function isLiquid(material) {
             return material === WATER || material === ACID;
         }
         
+        function moveParticle(fromX, fromY, toX, toY, material) {
+            const fi = idx(fromX, fromY);
+            const ti = idx(toX, toY);
+            grid[fi] = EMPTY;
+            grid[ti] = material;
+            updated[fi] = 1;
+            updated[ti] = 1;
+        }
+        
+        function swapCells(x1, y1, x2, y2) {
+            const i1 = idx(x1, y1);
+            const i2 = idx(x2, y2);
+            const temp = grid[i1];
+            grid[i1] = grid[i2];
+            grid[i2] = temp;
+            updated[i1] = 1;
+            updated[i2] = 1;
+        }
+        
         // Process sand physics
         function processSand(x, y) {
-            // Try to fall straight down
-            if (isEmpty(x, y + 1) && !updated[y + 1][x]) {
+            if (isEmpty(x, y + 1)) {
                 moveParticle(x, y, x, y + 1, SAND);
                 return;
             }
-            
-            // Try to sink through liquid below (displacement)
             const below = getCell(x, y + 1);
-            if (isLiquid(below) && !updated[y + 1][x]) {
+            if (isLiquid(below) && !updated[idx(x, y + 1)]) {
                 swapCells(x, y, x, y + 1);
                 return;
             }
-            
-            // Try to slide diagonally (randomize order)
-            const dx = Math.random() < 0.5 ? [-1, 1] : [1, -1];
-            for (const d of dx) {
-                const diagCell = getCell(x + d, y + 1);
-                if (isEmpty(x + d, y + 1) && !updated[y + 1][x + d]) {
-                    moveParticle(x, y, x + d, y + 1, SAND);
-                    return;
-                }
-                if (isLiquid(diagCell) && !updated[y + 1][x + d]) {
-                    swapCells(x, y, x + d, y + 1);
-                    return;
-                }
+            const d1 = Math.random() < 0.5 ? -1 : 1;
+            const d2 = -d1;
+            const diag1 = getCell(x + d1, y + 1);
+            if (isEmpty(x + d1, y + 1)) {
+                moveParticle(x, y, x + d1, y + 1, SAND);
+                return;
+            }
+            if (isLiquid(diag1) && !updated[idx(x + d1, y + 1)]) {
+                swapCells(x, y, x + d1, y + 1);
+                return;
+            }
+            const diag2 = getCell(x + d2, y + 1);
+            if (isEmpty(x + d2, y + 1)) {
+                moveParticle(x, y, x + d2, y + 1, SAND);
+                return;
+            }
+            if (isLiquid(diag2) && !updated[idx(x + d2, y + 1)]) {
+                swapCells(x, y, x + d2, y + 1);
+                return;
             }
         }
         
         // Process water/acid physics (liquids)
         function processLiquid(x, y, material) {
-            // Try to fall straight down into empty space
+            // Fall straight down
             if (isEmpty(x, y + 1)) {
                 moveParticle(x, y, x, y + 1, material);
                 return;
             }
-            
-            // Try to displace same-type liquid below (swap → then displaced one spreads sideways)
+            // Displace same-type liquid below
             const below = getCell(x, y + 1);
-            if (below === material && !updated[y + 1][x]) {
+            if (below === material && !updated[idx(x, y + 1)]) {
                 swapCells(x, y, x, y + 1);
                 return;
             }
-            
-            // Try to fall diagonally into empty space (randomize order)
-            const diagDirs = Math.random() < 0.5 ? [-1, 1] : [1, -1];
-            for (const d of diagDirs) {
-                if (isEmpty(x + d, y + 1)) {
-                    moveParticle(x, y, x + d, y + 1, material);
-                    return;
-                }
-                // Try to displace same-type liquid diagonally
-                const diagCell = getCell(x + d, y + 1);
-                if (diagCell === material && !updated[y + 1][x + d]) {
-                    swapCells(x, y, x + d, y + 1);
-                    return;
-                }
+            // Fall diagonally
+            const d1 = Math.random() < 0.5 ? -1 : 1;
+            const d2 = -d1;
+            if (isEmpty(x + d1, y + 1)) {
+                moveParticle(x, y, x + d1, y + 1, material);
+                return;
             }
-            
-            // Spread horizontally (randomize order)
-            const hDirs = Math.random() < 0.5 ? [-1, 1] : [1, -1];
-            for (const d of hDirs) {
-                if (isEmpty(x + d, y)) {
-                    moveParticle(x, y, x + d, y, material);
-                    return;
-                }
+            const diag1 = getCell(x + d1, y + 1);
+            if (diag1 === material && !updated[idx(x + d1, y + 1)]) {
+                swapCells(x, y, x + d1, y + 1);
+                return;
+            }
+            if (isEmpty(x + d2, y + 1)) {
+                moveParticle(x, y, x + d2, y + 1, material);
+                return;
+            }
+            const diag2 = getCell(x + d2, y + 1);
+            if (diag2 === material && !updated[idx(x + d2, y + 1)]) {
+                swapCells(x, y, x + d2, y + 1);
+                return;
+            }
+            // Spread horizontally
+            const h1 = Math.random() < 0.5 ? -1 : 1;
+            const h2 = -h1;
+            if (isEmpty(x + h1, y)) {
+                moveParticle(x, y, x + h1, y, material);
+                return;
+            }
+            if (isEmpty(x + h2, y)) {
+                moveParticle(x, y, x + h2, y, material);
+                return;
             }
         }
         
         // Process acid physics (dissolve + flow)
         function processAcid(x, y) {
-            // Check adjacent cells for sand/wall to dissolve (within bounds only)
-            const neighbors = [
-                {dx: 0, dy: 1},   // below
-                {dx: -1, dy: 1},  // below-left
-                {dx: 1, dy: 1},   // below-right
-                {dx: -1, dy: 0},  // left
-                {dx: 1, dy: 0},   // right
-                {dx: 0, dy: -1}   // above
-            ];
+            // Check adjacent cells for sand/wall to dissolve
+            const offsets = [[0,1],[-1,1],[1,1],[-1,0],[1,0],[0,-1]];
+            // Shuffle 2 elements at random positions for lightweight randomization
+            const si = Math.floor(Math.random() * offsets.length);
+            const sj = Math.floor(Math.random() * offsets.length);
+            const tmp = offsets[si]; offsets[si] = offsets[sj]; offsets[sj] = tmp;
             
-            // Shuffle neighbors to randomize dissolve target
-            const shuffled = neighbors.slice().sort(() => Math.random() - 0.5);
-            
-            for (const n of shuffled) {
-                const nx = x + n.dx;
-                const ny = y + n.dy;
+            for (const [dx, dy] of offsets) {
+                const nx = x + dx;
+                const ny = y + dy;
                 if (nx >= 0 && nx < GRID_WIDTH && ny >= 0 && ny < GRID_HEIGHT) {
-                    const neighborMat = grid[ny][nx];
+                    const ni = idx(nx, ny);
+                    const neighborMat = grid[ni];
                     if (neighborMat === SAND || neighborMat === WALL) {
-                        // Dissolve both: acid and target become empty
-                        grid[ny][nx] = EMPTY;
-                        grid[y][x] = EMPTY;
-                        updated[ny][nx] = true;
-                        updated[y][x] = true;
+                        grid[ni] = EMPTY;
+                        grid[idx(x, y)] = EMPTY;
+                        updated[ni] = 1;
+                        updated[idx(x, y)] = 1;
+                        particleCount -= 2;
                         return;
                     }
                 }
             }
-            
-            // Nothing to dissolve - flow like water
             processLiquid(x, y, ACID);
         }
         
-        // Liquid diffusion: randomly swap adjacent water↔acid with 50% chance
-        function diffusionStep() {
-            const startY = Math.floor(Math.random() * GRID_HEIGHT);
-            const startYDir = Math.random() < 0.5 ? 1 : -1;
+        // Main physics update
+        function updatePhysics() {
+            updated.fill(0);
             
-            for (let row = 0; row < GRID_HEIGHT; row++) {
-                const y = ((startY + row * startYDir) % GRID_HEIGHT + GRID_HEIGHT) % GRID_HEIGHT;
-                const sx = Math.floor(Math.random() * GRID_WIDTH);
-                const xDir = Math.random() < 0.5 ? 1 : -1;
+            // Process from BOTTOM to TOP
+            for (let y = GRID_HEIGHT - 1; y >= 0; y--) {
+                const xOrder = Math.random() < 0.5 ? xOrderForward : xOrderReverse;
+                const rowOff = y * GRID_WIDTH;
                 
-                for (let col = 0; col < GRID_WIDTH; col++) {
-                    const x = ((sx + col * xDir) % GRID_WIDTH + GRID_WIDTH) % GRID_WIDTH;
+                for (let xi = 0; xi < GRID_WIDTH; xi++) {
+                    const x = xOrder[xi];
+                    const i = rowOff + x;
+                    if (updated[i]) continue;
                     
-                    if (updated[y][x]) continue;
+                    const material = grid[i];
+                    if (material === EMPTY || material === WALL) continue;
                     
-                    const cell = grid[y][x];
-                    if (cell !== WATER && cell !== ACID) continue;
-                    
-                    // Check 8 adjacent cells (including diagonals) for opposite liquid type
-                    const dirs = [[0,1],[0,-1],[1,0],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1]];
-                    // Shuffle direction order
-                    for (let i = dirs.length - 1; i > 0; i--) {
-                        const j = Math.floor(Math.random() * (i + 1));
-                        [dirs[i], dirs[j]] = [dirs[j], dirs[i]];
-                    }
-                    
-                    for (const [dx, dy] of dirs) {
-                        const nx = x + dx;
-                        const ny = y + dy;
-                        if (nx < 0 || nx >= GRID_WIDTH || ny < 0 || ny >= GRID_HEIGHT) continue;
-                        if (updated[ny][nx]) continue;
-                        
-                        const neighbor = grid[ny][nx];
-                        if ((cell === WATER && neighbor === ACID) || (cell === ACID && neighbor === WATER)) {
-                            if (Math.random() < 0.9) {
-                                grid[y][x] = neighbor;
-                                grid[ny][nx] = cell;
-                                updated[y][x] = true;
-                                updated[ny][nx] = true;
+                    // Inline diffusion check: if liquid, check neighbors for opposite type
+                    if (material === WATER || material === ACID) {
+                        const opposite = material === WATER ? ACID : WATER;
+                        const diffs = [[0,1],[0,-1],[1,0],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1]];
+                        const di = Math.floor(Math.random() * diffs.length);
+                        const ddx = diffs[di][0], ddy = diffs[di][1];
+                        const dnx = x + ddx, dny = y + ddy;
+                        if (dnx >= 0 && dnx < GRID_WIDTH && dny >= 0 && dny < GRID_HEIGHT) {
+                            const dni = idx(dnx, dny);
+                            if (grid[dni] === opposite && !updated[dni] && Math.random() < 0.9) {
+                                grid[i] = opposite;
+                                grid[dni] = material;
+                                updated[i] = 1;
+                                updated[dni] = 1;
+                                // Don't process physics this frame for swapped cells
+                                continue;
                             }
-                            return; // One swap attempt per call
                         }
                     }
-                }
-            }
-        }
-        
-        // Main physics update - CRITICAL: Process from BOTTOM to TOP
-        function updatePhysics() {
-            // Reset updated flags
-            for (let y = 0; y < GRID_HEIGHT; y++) {
-                for (let x = 0; x < GRID_WIDTH; x++) {
-                    updated[y][x] = false;
-                }
-            }
-            
-            // Process from BOTTOM to TOP to prevent teleportation
-            for (let y = GRID_HEIGHT - 1; y >= 0; y--) {
-                // Randomize X order per row to prevent left/right bias
-                const xOrder = [];
-                if (Math.random() < 0.5) {
-                    for (let x = 0; x < GRID_WIDTH; x++) xOrder.push(x);
-                } else {
-                    for (let x = GRID_WIDTH - 1; x >= 0; x--) xOrder.push(x);
-                }
-                
-                for (const x of xOrder) {
-                    if (updated[y][x]) continue; // Skip already-moved particles
                     
-                    const material = grid[y][x];
                     switch (material) {
-                        case SAND:
-                            processSand(x, y);
-                            break;
-                        case WATER:
-                            processLiquid(x, y, WATER);
-                            break;
-                        case ACID:
-                            processAcid(x, y);
-                            break;
-                        // WALL and EMPTY: no processing needed
+                        case SAND: processSand(x, y); break;
+                        case WATER: processLiquid(x, y, WATER); break;
+                        case ACID: processAcid(x, y); break;
                     }
                 }
             }
-            
-            // Liquid diffusion: swap adjacent water↔acid with 50% probability
-            // Run multiple attempts per frame for visible mixing rate
-            for (let i = 0; i < 200; i++) {
-                diffusionStep();
-            }
         }
         
-        // Render the grid to canvas
+        // Render using Uint32Array for fast pixel writes
         function render() {
             const imageData = ctx.createImageData(canvas.width, canvas.height);
-            const data = imageData.data;
+            const buf32 = new Uint32Array(imageData.data.buffer);
             
             for (let y = 0; y < GRID_HEIGHT; y++) {
                 for (let x = 0; x < GRID_WIDTH; x++) {
-                    const material = grid[y][x];
-                    const color = COLORS[material];
+                    const material = grid[idx(x, y)];
+                    // Pack RGBA into 32-bit word (little-endian: ABGR)
+                    const pixel = (255 << 24) | (COLOR_B[material] << 16) | (COLOR_G[material] << 8) | COLOR_R[material];
                     
-                    // Parse color
-                    const r = parseInt(color.slice(1, 3), 16);
-                    const g = parseInt(color.slice(3, 5), 16);
-                    const b = parseInt(color.slice(5, 7), 16);
-                    
-                    // Fill the cell (scale up from grid to canvas)
-                    const startX = Math.floor(x * CELL_SIZE);
-                    const startY = Math.floor(y * CELL_SIZE);
-                    const endX = Math.floor((x + 1) * CELL_SIZE);
-                    const endY = Math.floor((y + 1) * CELL_SIZE);
+                    const startX = x * CELL_SIZE | 0;
+                    const startY = y * CELL_SIZE | 0;
+                    const endX = (x + 1) * CELL_SIZE | 0;
+                    const endY = (y + 1) * CELL_SIZE | 0;
                     
                     for (let py = startY; py < endY; py++) {
+                        const rowStart = py * canvas.width;
                         for (let px = startX; px < endX; px++) {
-                            const index = (py * canvas.width + px) * 4;
-                            data[index] = r;
-                            data[index + 1] = g;
-                            data[index + 2] = b;
-                            data[index + 3] = 255;
+                            buf32[rowStart + px] = pixel;
                         }
                     }
                 }
@@ -784,12 +711,14 @@
                     const y = gridY + dy;
                     
                     if (x >= 0 && x < GRID_WIDTH && y >= 0 && y < GRID_HEIGHT) {
-                        // Circular brush
                         if (dx * dx + dy * dy < brushSize * brushSize) {
+                            const i = idx(x, y);
                             if (currentMaterial === EMPTY) {
-                                grid[y][x] = EMPTY;
-                            } else if (grid[y][x] === EMPTY || currentMaterial === EMPTY) {
-                                grid[y][x] = currentMaterial;
+                                if (grid[i] !== EMPTY) particleCount--;
+                                grid[i] = EMPTY;
+                            } else if (grid[i] === EMPTY) {
+                                grid[i] = currentMaterial;
+                                particleCount++;
                             }
                         }
                     }
@@ -797,25 +726,11 @@
             }
         }
         
-        // Count particles
-        function countParticles() {
-            let count = 0;
-            for (let y = 0; y < GRID_HEIGHT; y++) {
-                for (let x = 0; x < GRID_WIDTH; x++) {
-                    if (grid[y][x] !== EMPTY) {
-                        count++;
-                    }
-                }
-            }
-            return count;
-        }
-        
         // Main game loop
         function gameLoop() {
             updatePhysics();
             render();
             
-            // Calculate FPS
             frameCount++;
             const currentTime = performance.now();
             if (currentTime - lastTime >= 1000) {
@@ -823,7 +738,7 @@
                 frameCount = 0;
                 lastTime = currentTime;
                 document.getElementById('fps').textContent = fps;
-                document.getElementById('particles').textContent = countParticles();
+                document.getElementById('particles').textContent = particleCount;
             }
             
             requestAnimationFrame(gameLoop);
