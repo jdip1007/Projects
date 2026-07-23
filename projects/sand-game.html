@@ -448,13 +448,13 @@
         const WALL = 3;
         const ACID = 4;
         
-        // Material colors
+        // Material colors (improved visibility)
         const COLORS = {
             [EMPTY]: '#1e1e24',
             [SAND]: '#e9c46a',
-            [WATER]: '#457b9d',
+            [WATER]: '#4a9dc9',  // Brighter, more visible blue
             [WALL]: '#6c757d',
-            [ACID]: '#55ff33'
+            [ACID]: '#00ff66'   // More visible neon green
         };
         
         // Simulation state
@@ -560,7 +560,7 @@
                 return;
             }
             
-            // Try to fall diagonally (randomize left/right first)
+            // Try to fall diagonally (check both directions)
             const diagonalDirs = Math.random() < 0.5 ? [-1, 1] : [1, -1];
             for (const dx of diagonalDirs) {
                 if (isEmpty(x + dx, y + 1)) {
@@ -570,14 +570,17 @@
                 }
             }
             
-            // Spread horizontally (randomize left/right first)
-            const horizontalDirs = Math.random() < 0.5 ? [-1, 1] : [1, -1];
-            for (const dx of horizontalDirs) {
-                if (isEmpty(x + dx, y)) {
-                    setCell(x + dx, y, material);
-                    setCell(x, y, EMPTY);
-                    return;
-                }
+            // Spread horizontally - check BOTH directions, move if ANY is empty
+            // Don't return after first check - try to find space
+            if (isEmpty(x - 1, y)) {
+                setCell(x - 1, y, material);
+                setCell(x, y, EMPTY);
+                return;
+            }
+            if (isEmpty(x + 1, y)) {
+                setCell(x + 1, y, material);
+                setCell(x, y, EMPTY);
+                return;
             }
             
             // Stay in place
@@ -619,7 +622,7 @@
                 return;
             }
             
-            // Try to fall diagonally (randomize left/right first)
+            // Try to fall diagonally (check both directions)
             const diagonalDirs = Math.random() < 0.5 ? [-1, 1] : [1, -1];
             for (const dx of diagonalDirs) {
                 if (isEmpty(x + dx, y + 1)) {
@@ -629,14 +632,16 @@
                 }
             }
             
-            // Spread horizontally (randomize left/right first)
-            const horizontalDirs = Math.random() < 0.5 ? [-1, 1] : [1, -1];
-            for (const dx of horizontalDirs) {
-                if (isEmpty(x + dx, y)) {
-                    setCell(x + dx, y, ACID);
-                    setCell(x, y, EMPTY);
-                    return;
-                }
+            // Spread horizontally - check BOTH directions
+            if (isEmpty(x - 1, y)) {
+                setCell(x - 1, y, ACID);
+                setCell(x, y, EMPTY);
+                return;
+            }
+            if (isEmpty(x + 1, y)) {
+                setCell(x + 1, y, ACID);
+                setCell(x, y, EMPTY);
+                return;
             }
             
             // Stay in place
