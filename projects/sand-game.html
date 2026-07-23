@@ -572,17 +572,30 @@
         
         // Process water/acid physics (liquids)
         function processLiquid(x, y, material) {
-            // Try to fall straight down
-            if (isEmpty(x, y + 1) && !updated[y + 1][x]) {
+            // Try to fall straight down into empty space
+            if (isEmpty(x, y + 1)) {
                 moveParticle(x, y, x, y + 1, material);
                 return;
             }
             
-            // Try to fall diagonally (randomize order)
+            // Try to displace same-type liquid below (swap → then displaced one spreads sideways)
+            const below = getCell(x, y + 1);
+            if (below === material && !updated[y + 1][x]) {
+                swapCells(x, y, x, y + 1);
+                return;
+            }
+            
+            // Try to fall diagonally into empty space (randomize order)
             const diagDirs = Math.random() < 0.5 ? [-1, 1] : [1, -1];
             for (const d of diagDirs) {
-                if (isEmpty(x + d, y + 1) && !updated[y + 1][x + d]) {
+                if (isEmpty(x + d, y + 1)) {
                     moveParticle(x, y, x + d, y + 1, material);
+                    return;
+                }
+                // Try to displace same-type liquid diagonally
+                const diagCell = getCell(x + d, y + 1);
+                if (diagCell === material && !updated[y + 1][x + d]) {
+                    swapCells(x, y, x + d, y + 1);
                     return;
                 }
             }
@@ -590,7 +603,7 @@
             // Spread horizontally (randomize order)
             const hDirs = Math.random() < 0.5 ? [-1, 1] : [1, -1];
             for (const d of hDirs) {
-                if (isEmpty(x + d, y) && !updated[y][x + d]) {
+                if (isEmpty(x + d, y)) {
                     moveParticle(x, y, x + d, y, material);
                     return;
                 }
