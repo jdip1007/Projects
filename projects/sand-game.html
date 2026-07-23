@@ -829,18 +829,22 @@
                 const gpuInstance = new GPU();
                 // Render kernel: reads grid, outputs RGBA pixels for each canvas pixel
                 // setGraphical(true) makes GPU.js render directly to its own canvas
+                // NOTE: GPU.js graphical kernels cannot use 'return' — must use this.color() for all paths
                 gpuKernel = gpuInstance.createKernel(function(grid, gridWidth, gridHeight, cellSize, colorR, colorG, colorB) {
-                    // Which grid cell does this canvas pixel belong to?
                     const gx = Math.floor(this.thread.x / cellSize);
                     const gy = Math.floor(this.thread.y / cellSize);
                     
-                    if (gx >= gridWidth || gy >= gridHeight) {
-                        this.color(30/255, 30/255, 36/255, 1);
-                        return;
+                    // Background color (out-of-bounds fallback)
+                    let r = 30/255, g = 30/255, b = 36/255;
+                    
+                    if (gx < gridWidth && gy < gridHeight) {
+                        const material = grid[gy * gridWidth + gx];
+                        r = colorR[material]/255;
+                        g = colorG[material]/255;
+                        b = colorB[material]/255;
                     }
                     
-                    const material = grid[gy * gridWidth + gx];
-                    this.color(colorR[material]/255, colorG[material]/255, colorB[material]/255, 1);
+                    this.color(r, g, b, 1);
                 })
                 .setOutput([canvas.width, canvas.height])
                 .setGraphical(true);
@@ -868,10 +872,14 @@
             for (let i = 0; i < COLOR_G.length; i++) colorGFloat[i] = COLOR_G[i];
             for (let i = 0; i < COLOR_B.length; i++) colorBFloat[i] = COLOR_B[i];
             
-            gpuKernel(gridFloat, GRID_WIDTH, GRID_HEIGHT, CELL_SIZE, colorRFloat, colorGFloat, colorBFloat);
-            
-            // Copy GPU kernel canvas to our main canvas
-            ctx.drawImage(gpuKernel.canvas, 0, 0);
+            try {
+                gpuKernel(gridFloat, GRID_WIDTH, GRID_HEIGHT, CELL_SIZE, colorRFloat, colorGFloat, colorBFloat);
+                // Copy GPU kernel canvas to our main canvas
+                ctx.drawImage(gpuKernel.canvas, 0, 0);
+            } catch (e) {
+                // GPU failed — fall back to CPU render for this frame
+                render();
+            }
         }
         
         // Paint material at position
@@ -902,10 +910,23 @@
         
         // Main game loop
         function gameLoop() {
-            updatePhysics();
-            if (gpuMode && gpuKernel) {
-                renderGPU();
-            } else {
+            try {
+                updatePhysics();
+                if (gpuMode && gpuKernel) {
+                    renderGPU();
+                } else {
+                    render();
+                }
+            } catch (e) {
+                // If GPU crashes, fall back to CPU
+                if (gpuMode) {
+                    gpuMode = false;
+                    gpuAvailable = false;
+                    gpuKernel = null;
+                    document.getElementById('gpuToggle').checked = false;
+                    document.getElementById('gpuStatus').textContent = 'CPU';
+                    document.getElementById('gpuStatus').style.color = '#b0b0b0';
+                }
                 render();
             }
             
