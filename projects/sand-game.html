@@ -832,12 +832,11 @@
                 // Render kernel: reads grid, outputs RGBA pixels for each canvas pixel
                 // setGraphical(true) makes GPU.js render directly to its own canvas
                 // NOTE: GPU.js graphical kernels cannot use 'return' — must use this.color() for all paths
-                // NOTE: GPU.js WebGL thread.y = 0 is BOTTOM row (OpenGL convention), but our grid Y=0 is TOP row.
-                //       Invert gy to match: flip thread.y so canvas row 0 → grid row 0.
+                // NOTE: GPU.js setGraphical(true) maps thread.y=0 to canvas TOP row (already flipped internally).
+                //       So gy = thread.y / cellSize correctly maps canvas row → grid row (both top-down).
                 gpuKernel = gpuInstance.createKernel(function(grid, gridWidth, gridHeight, cellSize, colorR, colorG, colorB) {
                     const gx = Math.floor(this.thread.x / cellSize);
-                    // Flip Y: canvas height minus thread.y maps OpenGL bottom-up to grid top-down
-                    const gy = Math.floor((this.constants.canvasHeight - this.thread.y - 1) / cellSize);
+                    const gy = Math.floor(this.thread.y / cellSize);
                     
                     // Background color (out-of-bounds fallback)
                     let r = 30/255, g = 30/255, b = 36/255;
@@ -852,7 +851,6 @@
                     this.color(r, g, b, 1);
                 })
                 .setOutput([canvas.width, canvas.height])
-                .setConstants({ canvasHeight: canvas.height })
                 .setGraphical(true);
                 
                 gpuAvailable = true;
@@ -881,6 +879,10 @@
             try {
                 gpuKernel(gridFloat, GRID_WIDTH, GRID_HEIGHT, CELL_SIZE, colorRFloat, colorGFloat, colorBFloat);
                 // Copy GPU kernel canvas to our main canvas
+                // GPU.js WebGL framebuffer has Y=0 at bottom (OpenGL convention),
+                // but canvas 2D context expects Y=0 at top.
+                // drawImage automatically handles this flip for us since the kernel
+                // canvas is a regular HTML canvas element.
                 ctx.drawImage(gpuKernel.canvas, 0, 0);
             } catch (e) {
                 // GPU failed — fall back to CPU render for this frame
