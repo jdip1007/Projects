@@ -663,8 +663,8 @@
                     const cell = grid[y][x];
                     if (cell !== WATER && cell !== ACID) continue;
                     
-                    // Check 4 adjacent cells for opposite liquid type
-                    const dirs = [[0,1],[0,-1],[1,0],[-1,0]];
+                    // Check 8 adjacent cells (including diagonals) for opposite liquid type
+                    const dirs = [[0,1],[0,-1],[1,0],[-1,0],[1,1],[1,-1],[-1,1],[-1,-1]];
                     // Shuffle direction order
                     for (let i = dirs.length - 1; i > 0; i--) {
                         const j = Math.floor(Math.random() * (i + 1));
@@ -732,7 +732,7 @@
             
             // Liquid diffusion: swap adjacent water↔acid with 50% probability
             // Run multiple attempts per frame for visible mixing rate
-            for (let i = 0; i < 50; i++) {
+            for (let i = 0; i < 200; i++) {
                 diffusionStep();
             }
         }
