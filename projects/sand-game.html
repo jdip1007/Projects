@@ -679,7 +679,7 @@
                         
                         const neighbor = grid[ny][nx];
                         if ((cell === WATER && neighbor === ACID) || (cell === ACID && neighbor === WATER)) {
-                            if (Math.random() < 0.5) {
+                            if (Math.random() < 0.9) {
                                 grid[y][x] = neighbor;
                                 grid[ny][nx] = cell;
                                 updated[y][x] = true;
