@@ -467,6 +467,12 @@
                 </div>
                 
                 <div class="control-group">
+                    <label>Grid Size: <span id="gridSizeValue">150</span></label>
+                    <input type="range" id="gridSizeSlider" min="150" max="1000" value="150" step="50">
+                    <div class="brush-size-display">Resize simulation grid</div>
+                </div>
+                
+                <div class="control-group">
                     <div class="action-buttons">
                         <button class="action-btn clear" id="clearCanvas">🗑️ Clear Canvas</button>
                     </div>
@@ -553,10 +559,10 @@
         // Canvas and grid configuration
         const canvas = document.getElementById('sandbox');
         const ctx = canvas.getContext('2d');
-        const GRID_WIDTH = 150;
-        const GRID_HEIGHT = 150;
-        const CELL_SIZE = canvas.width / GRID_WIDTH;
-        const GRID_SIZE = GRID_WIDTH * GRID_HEIGHT;
+        let GRID_WIDTH = 150;
+        let GRID_HEIGHT = 150;
+        let CELL_SIZE = canvas.width / GRID_WIDTH;
+        let GRID_SIZE = GRID_WIDTH * GRID_HEIGHT;
         
         // Material types
         const EMPTY = 0;
@@ -583,19 +589,82 @@
         let fps = 0;
         let particleCount = 0;
         
-        // Pre-allocated x-order arrays (avoid allocation every row)
-        const xOrderForward = new Uint8Array(GRID_WIDTH);
-        const xOrderReverse = new Uint8Array(GRID_WIDTH);
-        for (let i = 0; i < GRID_WIDTH; i++) {
-            xOrderForward[i] = i;
-            xOrderReverse[i] = GRID_WIDTH - 1 - i;
+        // Pre-allocated x-order arrays (rebuilt on grid resize)
+        let xOrderForward = new Uint8Array(GRID_WIDTH);
+        let xOrderReverse = new Uint8Array(GRID_WIDTH);
+        function buildXOrders() {
+            xOrderForward = new Uint8Array(GRID_WIDTH);
+            xOrderReverse = new Uint8Array(GRID_WIDTH);
+            for (let i = 0; i < GRID_WIDTH; i++) {
+                xOrderForward[i] = i;
+                xOrderReverse[i] = GRID_WIDTH - 1 - i;
+            }
         }
+        buildXOrders();
         
         // Initialize grids
         function initGrid() {
             grid.fill(EMPTY);
             updated.fill(0);
             particleCount = 0;
+        }
+        
+        // Resize grid: expand/contract top, left, right sides (bottom anchored)
+        // Existing content stays at bottom-center, new space is EMPTY
+        function resizeGrid(newSize) {
+            if (newSize === GRID_WIDTH) return;
+            
+            const oldW = GRID_WIDTH;
+            const oldH = GRID_HEIGHT;
+            const oldGrid = grid;
+            const oldUpdated = updated;
+            const newW = newSize;
+            const newH = newSize;
+            
+            GRID_WIDTH = newW;
+            GRID_HEIGHT = newH;
+            CELL_SIZE = canvas.width / GRID_WIDTH;
+            GRID_SIZE = GRID_WIDTH * GRID_HEIGHT;
+            
+            grid = new Uint8Array(GRID_SIZE);
+            updated = new Uint8Array(GRID_SIZE);
+            
+            // Copy old content: anchored at bottom-center
+            // Offset: old content shifts right by (newW - oldW)/2 columns, down by (newH - oldH) rows
+            const dx = Math.floor((newW - oldW) / 2);  // left-side padding
+            const dy = newH - oldH;                     // top-side padding (negative = cropping from top)
+            
+            let newParticleCount = 0;
+            for (let oy = 0; oy < oldH; oy++) {
+                const ny = oy + dy;
+                if (ny < 0 || ny >= newH) continue;  // row cropped off at top
+                for (let ox = 0; ox < oldW; ox++) {
+                    const nx = ox + dx;
+                    if (nx < 0 || nx >= newW) continue;  // column cropped off at sides
+                    const oldVal = oldGrid[oy * oldW + ox];
+                    if (oldVal !== EMPTY) newParticleCount++;
+                    grid[ny * newW + nx] = oldVal;
+                }
+            }
+            particleCount = newParticleCount;
+            
+            buildXOrders();
+            
+            // Rebuild GPU kernel if active (needs new dimensions)
+            if (gpuMode && gpuKernel) {
+                destroyGPU();
+                initGPU();
+                if (!gpuAvailable) {
+                    // GPU failed on new size, fall back to CPU
+                    gpuMode = false;
+                    document.getElementById('gpuToggle').checked = false;
+                    document.getElementById('gpuStatus').textContent = 'CPU';
+                    document.getElementById('gpuStatus').style.color = '#b0b0b0';
+                }
+            }
+            
+            // Update stats display
+            document.getElementById('gridSize').textContent = newW + 'x' + newH;
         }
         
         // Flat grid access helpers
@@ -636,33 +705,26 @@
         
         // Process sand physics
         function processSand(x, y) {
+            // Fall straight down
             if (isEmpty(x, y + 1)) {
                 moveParticle(x, y, x, y + 1, SAND);
                 return;
             }
+            // Sink through liquid below (buoyancy: 50% chance to swap)
             const below = getCell(x, y + 1);
-            if (isLiquid(below) && !updated[idx(x, y + 1)]) {
+            if (isLiquid(below) && !updated[idx(x, y + 1)] && Math.random() < 0.5) {
                 swapCells(x, y, x, y + 1);
                 return;
             }
+            // Slide diagonally (only through air, NOT through liquid)
             const d1 = Math.random() < 0.5 ? -1 : 1;
             const d2 = -d1;
-            const diag1 = getCell(x + d1, y + 1);
             if (isEmpty(x + d1, y + 1)) {
                 moveParticle(x, y, x + d1, y + 1, SAND);
                 return;
             }
-            if (isLiquid(diag1) && !updated[idx(x + d1, y + 1)]) {
-                swapCells(x, y, x + d1, y + 1);
-                return;
-            }
-            const diag2 = getCell(x + d2, y + 1);
             if (isEmpty(x + d2, y + 1)) {
                 moveParticle(x, y, x + d2, y + 1, SAND);
-                return;
-            }
-            if (isLiquid(diag2) && !updated[idx(x + d2, y + 1)]) {
-                swapCells(x, y, x + d2, y + 1);
                 return;
             }
         }
@@ -792,23 +854,41 @@
         function render() {
             const imageData = ctx.createImageData(canvas.width, canvas.height);
             const buf32 = new Uint32Array(imageData.data.buffer);
+            const w = canvas.width;
+            const h = canvas.height;
             
-            for (let y = 0; y < GRID_HEIGHT; y++) {
-                for (let x = 0; x < GRID_WIDTH; x++) {
-                    const material = grid[idx(x, y)];
-                    // Pack RGBA into 32-bit word (little-endian: ABGR)
-                    const pixel = (255 << 24) | (COLOR_B[material] << 16) | (COLOR_G[material] << 8) | COLOR_R[material];
-                    
-                    const startX = x * CELL_SIZE | 0;
-                    const startY = y * CELL_SIZE | 0;
-                    const endX = (x + 1) * CELL_SIZE | 0;
-                    const endY = (y + 1) * CELL_SIZE | 0;
-                    
-                    for (let py = startY; py < endY; py++) {
-                        const rowStart = py * canvas.width;
-                        for (let px = startX; px < endX; px++) {
-                            buf32[rowStart + px] = pixel;
+            // When CELL_SIZE >= 1: iterate grid cells, fill pixel blocks (fast for small grids)
+            // When CELL_SIZE < 1: iterate canvas pixels, sample grid cell (fast for large grids)
+            if (CELL_SIZE >= 1) {
+                for (let y = 0; y < GRID_HEIGHT; y++) {
+                    for (let x = 0; x < GRID_WIDTH; x++) {
+                        const material = grid[idx(x, y)];
+                        const pixel = (255 << 24) | (COLOR_B[material] << 16) | (COLOR_G[material] << 8) | COLOR_R[material];
+                        
+                        const startX = x * CELL_SIZE | 0;
+                        const startY = y * CELL_SIZE | 0;
+                        const endX = (x + 1) * CELL_SIZE | 0;
+                        const endY = (y + 1) * CELL_SIZE | 0;
+                        
+                        for (let py = startY; py < endY; py++) {
+                            const rowStart = py * w;
+                            for (let px = startX; px < endX; px++) {
+                                buf32[rowStart + px] = pixel;
+                            }
                         }
+                    }
+                }
+            } else {
+                // Large grid: each pixel maps to one grid cell, iterate pixels instead
+                for (let py = 0; py < h; py++) {
+                    const gy = Math.floor(py / CELL_SIZE);
+                    if (gy >= GRID_HEIGHT) continue;
+                    const rowStart = py * w;
+                    for (let px = 0; px < w; px++) {
+                        const gx = Math.floor(px / CELL_SIZE);
+                        if (gx >= GRID_WIDTH) continue;
+                        const material = grid[idx(gx, gy)];
+                        buf32[rowStart + px] = (255 << 24) | (COLOR_B[material] << 16) | (COLOR_G[material] << 8) | COLOR_R[material];
                     }
                 }
             }
@@ -1044,6 +1124,15 @@
         brushSizeSlider.addEventListener('input', (e) => {
             brushSize = parseInt(e.target.value);
             brushSizeValue.textContent = brushSize;
+        });
+        
+        // Grid size handler
+        const gridSizeSlider = document.getElementById('gridSizeSlider');
+        const gridSizeValueEl = document.getElementById('gridSizeValue');
+        gridSizeSlider.addEventListener('input', (e) => {
+            const newSize = parseInt(e.target.value);
+            gridSizeValueEl.textContent = newSize;
+            resizeGrid(newSize);
         });
         
         // Clear canvas handler
