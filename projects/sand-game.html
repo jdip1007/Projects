@@ -901,6 +901,7 @@
         let gpuMode = false;
         let gpuKernel = null;
         let gpuAvailable = false;
+        let gpuRendererInfo = '';
         
         function initGPU() {
             try {
@@ -910,6 +911,25 @@
                     return;
                 }
                 const gpuInstance = new GPU();
+                
+                // Check WebGL renderer info to confirm hardware GPU usage
+                const glCanvas = document.createElement('canvas');
+                const gl = glCanvas.getContext('webgl') || glCanvas.getContext('experimental-webgl');
+                if (gl) {
+                    const debugExt = gl.getExtension('WEBGL_debug_renderer_info');
+                    if (debugExt) {
+                        const vendor = gl.getParameter(debugExt.UNMASKED_VENDOR_WEBGL);
+                        const renderer = gl.getParameter(debugExt.UNMASKED_RENDERER_WEBGL);
+                        gpuRendererInfo = vendor + ' | ' + renderer;
+                        console.log('WebGL GPU:', gpuRendererInfo);
+                    } else {
+                        gpuRendererInfo = gl.getParameter(gl.VENDOR) + ' | ' + gl.getParameter(gl.RENDERER);
+                        console.log('WebGL (masked):', gpuRendererInfo);
+                    }
+                } else {
+                    gpuRendererInfo = 'WebGL unavailable';
+                }
+                
                 // Render kernel: reads grid, outputs RGBA pixels for each canvas pixel
                 // setGraphical(true) makes GPU.js render directly to its own canvas
                 // NOTE: GPU.js graphical kernels cannot use 'return' — must use this.color() for all paths
@@ -1153,6 +1173,7 @@
                     gpuMode = true;
                     gpuStatus.textContent = 'GPU ✓';
                     gpuStatus.style.color = '#00ff66';
+                    gpuStatus.title = gpuRendererInfo;  // hover tooltip shows GPU hardware
                 } else {
                     gpuToggle.checked = false;
                     gpuStatus.textContent = 'N/A';
