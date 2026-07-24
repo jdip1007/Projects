@@ -590,11 +590,12 @@
         let particleCount = 0;
         
         // Pre-allocated x-order arrays (rebuilt on grid resize)
-        let xOrderForward = new Uint8Array(GRID_WIDTH);
-        let xOrderReverse = new Uint8Array(GRID_WIDTH);
+        // Use Uint16Array to support grid sizes up to 65535 (Uint8Array overflows at 256)
+        let xOrderForward = new Uint16Array(GRID_WIDTH);
+        let xOrderReverse = new Uint16Array(GRID_WIDTH);
         function buildXOrders() {
-            xOrderForward = new Uint8Array(GRID_WIDTH);
-            xOrderReverse = new Uint8Array(GRID_WIDTH);
+            xOrderForward = new Uint16Array(GRID_WIDTH);
+            xOrderReverse = new Uint16Array(GRID_WIDTH);
             for (let i = 0; i < GRID_WIDTH; i++) {
                 xOrderForward[i] = i;
                 xOrderReverse[i] = GRID_WIDTH - 1 - i;
