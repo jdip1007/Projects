@@ -30,5 +30,12 @@
     "description": "Interactive cellular automata sandbox with realistic physics. Simulate falling sand, flowing water, solid walls, and dissolving acid in a 150x150 grid with smooth real-time rendering.",
     "page": "sand-game.html",
     "tags": ["JavaScript", "Canvas", "Physics", "Simulation", "Interactive"]
+  },
+  {
+    "id": "news-dashboard",
+    "title": "Daily News Dashboard",
+    "description": "Automated daily news collection from NewsAPI.org across 5 categories (general, technology, business, science, health). Dark-themed dashboard with search, filtering, and real-time updates.",
+    "page": "news-dashboard.html",
+    "tags": ["JavaScript", "NewsAPI", "Data", "Automation", "Dashboard"]
   }
 ]

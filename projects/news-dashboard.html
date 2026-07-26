@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily News Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117; color: #c9d1d9; line-height: 1.6;
+        }
+        .header {
+            background: #161b22; padding: 1.5rem 2rem;
+            border-bottom: 1px solid #30363d;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .header h1 { font-size: 1.5rem; color: #58a6ff; }
+        .header .meta { font-size: 0.85rem; color: #8b949e; margin-top: 0.3rem; }
+        .controls {
+            display: flex; gap: 0.5rem; padding: 1rem 2rem;
+            background: #161b22; border-bottom: 1px solid #30363d;
+            flex-wrap: wrap; align-items: center;
+        }
+        .cat-btn {
+            padding: 0.4rem 1rem; border: 1px solid #30363d;
+            border-radius: 20px; background: transparent; color: #8b949e;
+            cursor: pointer; font-size: 0.85rem; transition: all 0.2s;
+        }
+        .cat-btn:hover, .cat-btn.active {
+            background: #58a6ff; color: #0d1117; border-color: #58a6ff;
+        }
+        .search-box {
+            flex: 1; min-width: 200px; padding: 0.5rem 1rem;
+            border: 1px solid #30363d; border-radius: 20px;
+            background: #0d1117; color: #c9d1d9; font-size: 0.9rem;
+        }
+        .search-box::placeholder { color: #484f58; }
+        .stats {
+            padding: 0.8rem 2rem; font-size: 0.85rem; color: #8b949e;
+            border-bottom: 1px solid #30363d;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.2rem; padding: 1.5rem 2rem;
+        }
+        .card {
+            background: #161b22; border: 1px solid #30363d;
+            border-radius: 8px; overflow: hidden;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        .card:hover { transform: translateY(-2px); border-color: #58a6ff; }
+        .card-img {
+            width: 100%; height: 180px; object-fit: cover;
+            background: #21262d; display: block;
+        }
+        .card-img-placeholder {
+            width: 100%; height: 180px; background: #21262d;
+            display: flex; align-items: center; justify-content: center;
+            color: #484f58; font-size: 2rem;
+        }
+        .card-body { padding: 1rem 1.2rem; }
+        .card-source {
+            font-size: 0.75rem; color: #58a6ff; margin-bottom: 0.4rem;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .card-title {
+            font-size: 1.05rem; color: #c9d1d9; margin-bottom: 0.5rem;
+            line-height: 1.4; font-weight: 600;
+        }
+        .card-title a { color: #c9d1d9; text-decoration: none; }
+        .card-title a:hover { color: #58a6ff; }
+        .card-desc { font-size: 0.85rem; color: #8b949e; margin-bottom: 0.8rem; }
+        .card-footer {
+            display: flex; justify-content: space-between; align-items: center;
+            font-size: 0.75rem; color: #484f58;
+        }
+        .card-cat {
+            padding: 0.2rem 0.6rem; background: #21262d;
+            border-radius: 10px; color: #8b949e;
+        }
+        .empty { text-align: center; padding: 4rem; color: #484f58; }
+        .loading { text-align: center; padding: 4rem; color: #58a6ff; }
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: 1fr; padding: 1rem; }
+            .header, .controls, .stats { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📰 Daily News Dashboard</h1>
+        <div class="meta" id="meta">Loading...</div>
+    </div>
+
+    <div class="controls">
+        <button class="cat-btn active" data-cat="all">All</button>
+        <button class="cat-btn" data-cat="general">General</button>
+        <button class="cat-btn" data-cat="technology">Tech</button>
+        <button class="cat-btn" data-cat="business">Business</button>
+        <button class="cat-btn" data-cat="science">Science</button>
+        <button class="cat-btn" data-cat="health">Health</button>
+        <input type="text" class="search-box" id="search" placeholder="Search articles...">
+    </div>
+
+    <div class="stats" id="stats"></div>
+    <div class="grid" id="grid"></div>
+
+    <script>
+        let allArticles = [];
+        let activeCategory = 'all';
+
+        async function loadNews() {
+            document.getElementById('grid').innerHTML = '<div class="loading">⏳ Fetching latest news...</div>';
+            try {
+                const resp = await fetch('news-data.json');
+                const data = await resp.json();
+                allArticles = data.articles || [];
+                document.getElementById('meta').textContent = 
+                    `Last updated: ${new Date(data.lastUpdated).toLocaleString()} | ${data.totalArticles} articles`;
+                render();
+            } catch (e) {
+                document.getElementById('grid').innerHTML = 
+                    '<div class="empty">⚠️ Unable to load news data. Try again later.</div>';
+                document.getElementById('meta').textContent = 'Failed to load';
+            }
+        }
+
+        function timeAgo(dateStr) {
+            const d = new Date(dateStr);
+            const now = new Date();
+            const diff = Math.floor((now - d) / 1000);
+            if (diff < 60) return 'just now';
+            if (diff < 3600) return `${Math.floor(diff/60)}m ago`;
+            if (diff < 86400) return `${Math.floor(diff/3600)}h ago`;
+            if (diff < 604800) return `${Math.floor(diff/86400)}d ago`;
+            return d.toLocaleDateString();
+        }
+
+        function render() {
+            const search = document.getElementById('search').value.toLowerCase();
+            let filtered = allArticles;
+            if (activeCategory !== 'all') {
+                filtered = filtered.filter(a => a.category === activeCategory);
+            }
+            if (search) {
+                filtered = filtered.filter(a => 
+                    (a.title || '').toLowerCase().includes(search) ||
+                    (a.description || '').toLowerCase().includes(search) ||
+                    (a.source || '').toLowerCase().includes(search)
+                );
+            }
+            document.getElementById('stats').textContent = `Showing ${filtered.length} of ${allArticles.length} articles`;
+
+            const grid = document.getElementById('grid');
+            if (filtered.length === 0) {
+                grid.innerHTML = '<div class="empty">No articles found</div>';
+                return;
+            }
+
+            grid.innerHTML = filtered.map(a => {
+                const img = a.image 
+                    ? `<img class="card-img" src="${a.image}" alt="" onerror="this.outerHTML='<div class=card-img-placeholder>📰</div>'">`
+                    : '<div class="card-img-placeholder">📰</div>';
+                const desc = a.description 
+                    ? `<div class="card-desc">${a.description.substring(0, 150)}${a.description.length > 150 ? '...' : ''}</div>` 
+                    : '';
+                return `<div class="card">
+                    ${img}
+                    <div class="card-body">
+                        <div class="card-source">${a.source || 'Unknown'}</div>
+                        <div class="card-title"><a href="${a.url}" target="_blank" rel="noopener">${a.title}</a></div>
+                        ${desc}
+                        <div class="card-footer">
+                            <span>${timeAgo(a.publishedAt)}</span>
+                            <span class="card-cat">${a.category}</span>
+                        </div>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        // Category buttons
+        document.querySelectorAll('.cat-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeCategory = btn.dataset.cat;
+                render();
+            });
+        });
+
+        // Search
+        document.getElementById('search').addEventListener('input', render);
+
+        loadNews();
+    </script>
+</body>
+</html>
