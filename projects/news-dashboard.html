@@ -6,85 +6,94 @@
     <title>Daily News Dashboard</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0d1117; color: #c9d1d9; line-height: 1.6;
-        }
-        .header {
-            background: #161b22; padding: 1.5rem 2rem;
-            border-bottom: 1px solid #30363d;
-            position: sticky; top: 0; z-index: 100;
-        }
-        .header h1 { font-size: 1.5rem; color: #58a6ff; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; line-height: 1.6; }
+
+        .header { background: #161b22; padding: 1.5rem 2rem; border-bottom: 1px solid #30363d; position: sticky; top: 0; z-index: 100; }
+        .header h1 { font-size: 1.5rem; color: #58a6ff; display: flex; align-items: center; gap: 0.5rem; }
         .header .meta { font-size: 0.85rem; color: #8b949e; margin-top: 0.3rem; }
-        .controls {
-            display: flex; gap: 0.5rem; padding: 1rem 2rem;
-            background: #161b22; border-bottom: 1px solid #30363d;
-            flex-wrap: wrap; align-items: center;
+
+        .filters { padding: 0.8rem 2rem; background: #161b22; border-bottom: 1px solid #30363d; }
+        .filter-group { margin-bottom: 0.6rem; }
+        .filter-label { font-size: 0.75rem; color: #8b949e; margin-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .filter-row { display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center; }
+
+        .tag-btn {
+            padding: 0.35rem 0.9rem; border: 1px solid #30363d; border-radius: 20px;
+            background: transparent; color: #8b949e; cursor: pointer; font-size: 0.8rem;
+            transition: all 0.2s; user-select: none;
         }
-        .cat-btn {
-            padding: 0.4rem 1rem; border: 1px solid #30363d;
-            border-radius: 20px; background: transparent; color: #8b949e;
-            cursor: pointer; font-size: 0.85rem; transition: all 0.2s;
-        }
-        .cat-btn:hover, .cat-btn.active {
-            background: #58a6ff; color: #0d1117; border-color: #58a6ff;
-        }
+        .tag-btn:hover { border-color: #58a6ff; color: #58a6ff; }
+        .tag-btn.active { background: #58a6ff; color: #0d1117; border-color: #58a6ff; }
+        .tag-btn.active-region { background: #238636; color: #0d1117; border-color: #238636; }
+        .tag-btn.active-time { background: #da3633; color: #0d1117; border-color: #da3633; }
+
+        .controls-row { display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; }
         .search-box {
-            flex: 1; min-width: 200px; padding: 0.5rem 1rem;
-            border: 1px solid #30363d; border-radius: 20px;
-            background: #0d1117; color: #c9d1d9; font-size: 0.9rem;
+            flex: 1; min-width: 180px; padding: 0.5rem 1rem; border: 1px solid #30363d;
+            border-radius: 20px; background: #0d1117; color: #c9d1d9; font-size: 0.9rem;
         }
         .search-box::placeholder { color: #484f58; }
-        .stats {
-            padding: 0.8rem 2rem; font-size: 0.85rem; color: #8b949e;
-            border-bottom: 1px solid #30363d;
+
+        .view-toggle {
+            display: flex; gap: 0; border: 1px solid #30363d; border-radius: 6px; overflow: hidden;
         }
+        .view-btn {
+            padding: 0.4rem 0.8rem; background: transparent; color: #8b949e;
+            cursor: pointer; border: none; font-size: 0.85rem; transition: all 0.2s;
+        }
+        .view-btn:hover { color: #58a6ff; }
+        .view-btn.active { background: #30363d; color: #c9d1d9; }
+
+        .stats { padding: 0.5rem 2rem; font-size: 0.8rem; color: #8b949e; border-bottom: 1px solid #21262d; }
+
+        /* Grid view */
         .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 1.2rem; padding: 1.5rem 2rem;
         }
         .card {
-            background: #161b22; border: 1px solid #30363d;
-            border-radius: 8px; overflow: hidden;
-            transition: transform 0.2s, border-color 0.2s;
+            background: #161b22; border: 1px solid #30363d; border-radius: 8px;
+            overflow: hidden; transition: transform 0.2s, border-color 0.2s;
         }
         .card:hover { transform: translateY(-2px); border-color: #58a6ff; }
-        .card-img {
-            width: 100%; height: 180px; object-fit: cover;
-            background: #21262d; display: block;
-        }
-        .card-img-placeholder {
-            width: 100%; height: 180px; background: #21262d;
-            display: flex; align-items: center; justify-content: center;
-            color: #484f58; font-size: 2rem;
-        }
+        .card-img { width: 100%; height: 180px; object-fit: cover; background: #21262d; display: block; }
+        .card-img-placeholder { width: 100%; height: 180px; background: #21262d; display: flex; align-items: center; justify-content: center; color: #484f58; font-size: 2rem; }
         .card-body { padding: 1rem 1.2rem; }
-        .card-source {
-            font-size: 0.75rem; color: #58a6ff; margin-bottom: 0.4rem;
-            text-transform: uppercase; letter-spacing: 0.5px;
-        }
-        .card-title {
-            font-size: 1.05rem; color: #c9d1d9; margin-bottom: 0.5rem;
-            line-height: 1.4; font-weight: 600;
-        }
+        .card-source { font-size: 0.75rem; color: #58a6ff; margin-bottom: 0.4rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .card-title { font-size: 1.05rem; color: #c9d1d9; margin-bottom: 0.5rem; line-height: 1.4; font-weight: 600; }
         .card-title a { color: #c9d1d9; text-decoration: none; }
         .card-title a:hover { color: #58a6ff; }
         .card-desc { font-size: 0.85rem; color: #8b949e; margin-bottom: 0.8rem; }
-        .card-footer {
-            display: flex; justify-content: space-between; align-items: center;
-            font-size: 0.75rem; color: #484f58;
+        .card-footer { display: flex; justify-content: space-between; align-items: center; font-size: 0.75rem; color: #484f58; }
+        .card-tags { display: flex; gap: 0.3rem; }
+        .card-tag { padding: 0.15rem 0.5rem; background: #21262d; border-radius: 8px; color: #8b949e; font-size: 0.7rem; }
+
+        /* List view */
+        .list { padding: 1rem 2rem; }
+        .list-item {
+            display: flex; gap: 1rem; padding: 0.8rem 0; border-bottom: 1px solid #21262d;
+            align-items: flex-start; transition: background 0.2s;
         }
-        .card-cat {
-            padding: 0.2rem 0.6rem; background: #21262d;
-            border-radius: 10px; color: #8b949e;
-        }
+        .list-item:hover { background: #161b22; }
+        .list-thumb { width: 80px; height: 60px; object-fit: cover; border-radius: 4px; background: #21262d; flex-shrink: 0; }
+        .list-thumb-placeholder { width: 80px; height: 60px; background: #21262d; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #484f58; flex-shrink: 0; }
+        .list-content { flex: 1; min-width: 0; }
+        .list-source { font-size: 0.7rem; color: #58a6ff; text-transform: uppercase; letter-spacing: 0.5px; }
+        .list-title { font-size: 0.95rem; color: #c9d1d9; font-weight: 600; line-height: 1.3; }
+        .list-title a { color: #c9d1d9; text-decoration: none; }
+        .list-title a:hover { color: #58a6ff; }
+        .list-desc { font-size: 0.8rem; color: #8b949e; margin-top: 0.2rem; }
+        .list-meta { display: flex; gap: 0.4rem; align-items: center; font-size: 0.7rem; color: #484f58; margin-top: 0.3rem; }
+        .list-tag { padding: 0.1rem 0.4rem; background: #21262d; border-radius: 6px; color: #8b949e; }
+
         .empty { text-align: center; padding: 4rem; color: #484f58; }
         .loading { text-align: center; padding: 4rem; color: #58a6ff; }
+
         @media (max-width: 768px) {
             .grid { grid-template-columns: 1fr; padding: 1rem; }
-            .header, .controls, .stats { padding: 1rem; }
+            .list { padding: 1rem; }
+            .header, .filters, .stats { padding: 0.8rem 1rem; }
+            .list-thumb, .list-thumb-placeholder { width: 60px; height: 45px; }
         }
     </style>
 </head>
@@ -94,35 +103,73 @@
         <div class="meta" id="meta">Loading...</div>
     </div>
 
-    <div class="controls">
-        <button class="cat-btn active" data-cat="all">All</button>
-        <button class="cat-btn" data-cat="general">General</button>
-        <button class="cat-btn" data-cat="technology">Tech</button>
-        <button class="cat-btn" data-cat="business">Business</button>
-        <button class="cat-btn" data-cat="science">Science</button>
-        <button class="cat-btn" data-cat="health">Health</button>
-        <input type="text" class="search-box" id="search" placeholder="Search articles...">
+    <div class="filters">
+        <!-- Region filters -->
+        <div class="filter-group">
+            <div class="filter-label">Region</div>
+            <div class="filter-row" id="region-filters">
+                <button class="tag-btn" data-region="United States">🇺🇸 United States</button>
+                <button class="tag-btn" data-region="Hong Kong">🇭🇰 Hong Kong</button>
+                <button class="tag-btn" data-region="Australia">🇦🇺 Australia</button>
+                <button class="tag-btn" data-region="Global">🌐 Global</button>
+            </div>
+        </div>
+        <!-- Category filters -->
+        <div class="filter-group">
+            <div class="filter-label">Category</div>
+            <div class="filter-row" id="cat-filters">
+                <button class="tag-btn" data-cat="general">General</button>
+                <button class="tag-btn" data-cat="technology">Tech</button>
+                <button class="tag-btn" data-cat="business">Finance</button>
+                <button class="tag-btn" data-cat="science">Science</button>
+                <button class="tag-btn" data-cat="health">Health</button>
+                <button class="tag-btn" data-cat="politics">Politics</button>
+            </div>
+        </div>
+        <!-- Time range filters -->
+        <div class="filter-group">
+            <div class="filter-label">Time Range</div>
+            <div class="filter-row" id="time-filters">
+                <button class="tag-btn" data-time="1w">Within 1 Week</button>
+                <button class="tag-btn" data-time="1m">Within 1 Month</button>
+                <button class="tag-btn" data-time="1y">Within 1 Year</button>
+            </div>
+        </div>
+        <!-- Search + view toggle -->
+        <div class="filter-group">
+            <div class="controls-row">
+                <input type="text" class="search-box" id="search" placeholder="Search articles...">
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid" id="grid-btn">▦ Grid</button>
+                    <button class="view-btn" data-view="list" id="list-btn">☰ List</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <div class="stats" id="stats"></div>
-    <div class="grid" id="grid"></div>
+    <div id="content-area"></div>
 
     <script>
         let allArticles = [];
-        let activeCategory = 'all';
+        let activeRegions = new Set();
+        let activeCategories = new Set();
+        let activeTimeRange = null;
+        let currentView = 'grid';
 
         async function loadNews() {
-            document.getElementById('grid').innerHTML = '<div class="loading">⏳ Fetching latest news...</div>';
+            document.getElementById('content-area').innerHTML = '<div class="loading">⏳ Fetching latest news...</div>';
             try {
                 const resp = await fetch('news-data.json');
                 const data = await resp.json();
                 allArticles = data.articles || [];
-                document.getElementById('meta').textContent = 
-                    `Last updated: ${new Date(data.lastUpdated).toLocaleString()} | ${data.totalArticles} articles`;
+                const dt = new Date(data.lastUpdated);
+                document.getElementById('meta').textContent =
+                    `Last updated: ${dt.toLocaleString()} | ${data.totalArticles} articles`;
                 render();
             } catch (e) {
-                document.getElementById('grid').innerHTML = 
-                    '<div class="empty">⚠️ Unable to load news data. Try again later.</div>';
+                document.getElementById('content-area').innerHTML =
+                    '<div class="empty">⚠️ Unable to load news data.</div>';
                 document.getElementById('meta').textContent = 'Failed to load';
             }
         }
@@ -138,61 +185,171 @@
             return d.toLocaleDateString();
         }
 
-        function render() {
+        function getFiltered() {
             const search = document.getElementById('search').value.toLowerCase();
             let filtered = allArticles;
-            if (activeCategory !== 'all') {
-                filtered = filtered.filter(a => a.category === activeCategory);
+
+            if (activeRegions.size > 0) {
+                filtered = filtered.filter(a => activeRegions.has(a.region));
+            }
+            if (activeCategories.size > 0) {
+                // Map "business" to also match "finance" labeled articles
+                filtered = filtered.filter(a => {
+                    let cat = a.category || '';
+                    if (activeCategories.has('business') && (cat === 'business' || cat === 'finance')) return true;
+                    if (activeCategories.has('finance') && (cat === 'business' || cat === 'finance')) return true;
+                    return activeCategories.has(cat);
+                });
+            }
+            if (activeTimeRange) {
+                const now = new Date();
+                let cutoff;
+                if (activeTimeRange === '1w') cutoff = new Date(now - 7*24*60*60*1000);
+                else if (activeTimeRange === '1m') cutoff = new Date(now - 30*24*60*60*1000);
+                else if (activeTimeRange === '1y') cutoff = new Date(now - 365*24*60*60*1000);
+                filtered = filtered.filter(a => new Date(a.publishedAt) >= cutoff);
             }
             if (search) {
-                filtered = filtered.filter(a => 
+                filtered = filtered.filter(a =>
                     (a.title || '').toLowerCase().includes(search) ||
                     (a.description || '').toLowerCase().includes(search) ||
                     (a.source || '').toLowerCase().includes(search)
                 );
             }
-            document.getElementById('stats').textContent = `Showing ${filtered.length} of ${allArticles.length} articles`;
+            return filtered;
+        }
 
-            const grid = document.getElementById('grid');
+        function render() {
+            const filtered = getFiltered();
+            const filtersApplied = [];
+            if (activeRegions.size) filtersApplied.push([...activeRegions].join(', '));
+            if (activeCategories.size) filtersApplied.push([...activeCategories].join(', '));
+            if (activeTimeRange) filtersApplied.push(activeTimeRange === '1w' ? '1 week' : activeTimeRange === '1m' ? '1 month' : '1 year');
+            document.getElementById('stats').textContent =
+                filtersApplied.length ? `Filters: ${filtersApplied.join(' · ')} | Showing ${filtered.length} of ${allArticles.length}` :
+                `Showing ${filtered.length} of ${allArticles.length} articles`;
+
+            const area = document.getElementById('content-area');
             if (filtered.length === 0) {
-                grid.innerHTML = '<div class="empty">No articles found</div>';
+                area.innerHTML = '<div class="empty">No articles match your filters</div>';
                 return;
             }
 
-            grid.innerHTML = filtered.map(a => {
-                const img = a.image 
-                    ? `<img class="card-img" src="${a.image}" alt="" onerror="this.outerHTML='<div class=card-img-placeholder>📰</div>'">`
-                    : '<div class="card-img-placeholder">📰</div>';
-                const desc = a.description 
-                    ? `<div class="card-desc">${a.description.substring(0, 150)}${a.description.length > 150 ? '...' : ''}</div>` 
-                    : '';
-                return `<div class="card">
-                    ${img}
-                    <div class="card-body">
-                        <div class="card-source">${a.source || 'Unknown'}</div>
-                        <div class="card-title"><a href="${a.url}" target="_blank" rel="noopener">${a.title}</a></div>
-                        ${desc}
-                        <div class="card-footer">
-                            <span>${timeAgo(a.publishedAt)}</span>
-                            <span class="card-cat">${a.category}</span>
+            if (currentView === 'grid') {
+                area.className = 'grid';
+                area.innerHTML = filtered.map(a => {
+                    const img = a.image
+                        ? `<img class="card-img" src="${a.image}" alt="" onerror="this.outerHTML='<div class=card-img-placeholder>📰</div>'">`
+                        : '<div class="card-img-placeholder">📰</div>';
+                    const desc = a.description
+                        ? `<div class="card-desc">${a.description.substring(0, 150)}${a.description.length > 150 ? '...' : ''}</div>`
+                        : '';
+                    return `<div class="card">
+                        ${img}
+                        <div class="card-body">
+                            <div class="card-source">${a.source || 'Unknown'}</div>
+                            <div class="card-title"><a href="${a.url}" target="_blank" rel="noopener">${a.title}</a></div>
+                            ${desc}
+                            <div class="card-footer">
+                                <span>${timeAgo(a.publishedAt)}</span>
+                                <div class="card-tags">
+                                    <span class="card-tag">${a.region || '—'}</span>
+                                    <span class="card-tag">${a.category || '—'}</span>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>`;
-            }).join('');
+                    </div>`;
+                }).join('');
+            } else {
+                // List view
+                area.className = 'list';
+                area.innerHTML = filtered.map(a => {
+                    const thumb = a.image
+                        ? `<img class="list-thumb" src="${a.image}" alt="" onerror="this.outerHTML='<div class=list-thumb-placeholder>📰</div>'">`
+                        : '<div class="list-thumb-placeholder">📰</div>';
+                    const desc = a.description
+                        ? `<div class="list-desc">${a.description.substring(0, 120)}...</div>`
+                        : '';
+                    return `<div class="list-item">
+                        ${thumb}
+                        <div class="list-content">
+                            <div class="list-source">${a.source || 'Unknown'}</div>
+                            <div class="list-title"><a href="${a.url}" target="_blank" rel="noopener">${a.title}</a></div>
+                            ${desc}
+                            <div class="list-meta">
+                                <span>${timeAgo(a.publishedAt)}</span>
+                                <span class="list-tag">${a.region || '—'}</span>
+                                <span class="list-tag">${a.category || '—'}</span>
+                            </div>
+                        </div>
+                    </div>`;
+                }).join('');
+            }
         }
 
-        // Category buttons
-        document.querySelectorAll('.cat-btn').forEach(btn => {
+        // Region filter (multi-select)
+        document.querySelectorAll('#region-filters .tag-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-                activeCategory = btn.dataset.cat;
+                const region = btn.dataset.region;
+                if (activeRegions.has(region)) {
+                    activeRegions.delete(region);
+                    btn.classList.remove('active-region');
+                } else {
+                    activeRegions.add(region);
+                    btn.classList.add('active-region');
+                }
+                render();
+            });
+        });
+
+        // Category filter (multi-select)
+        document.querySelectorAll('#cat-filters .tag-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const cat = btn.dataset.cat;
+                if (activeCategories.has(cat)) {
+                    activeCategories.delete(cat);
+                    btn.classList.remove('active');
+                } else {
+                    activeCategories.add(cat);
+                    btn.classList.add('active');
+                }
+                render();
+            });
+        });
+
+        // Time range filter (single-select)
+        document.querySelectorAll('#time-filters .tag-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const time = btn.dataset.time;
+                if (activeTimeRange === time) {
+                    activeTimeRange = null;
+                    btn.classList.remove('active-time');
+                } else {
+                    // Clear all other time buttons
+                    document.querySelectorAll('#time-filters .tag-btn').forEach(b => b.classList.remove('active-time'));
+                    activeTimeRange = time;
+                    btn.classList.add('active-time');
+                }
                 render();
             });
         });
 
         // Search
         document.getElementById('search').addEventListener('input', render);
+
+        // View toggle
+        document.getElementById('grid-btn').addEventListener('click', () => {
+            currentView = 'grid';
+            document.getElementById('grid-btn').classList.add('active');
+            document.getElementById('list-btn').classList.remove('active');
+            render();
+        });
+        document.getElementById('list-btn').addEventListener('click', () => {
+            currentView = 'list';
+            document.getElementById('list-btn').classList.add('active');
+            document.getElementById('grid-btn').classList.remove('active');
+            render();
+        });
 
         loadNews();
     </script>
