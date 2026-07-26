@@ -46,15 +46,15 @@
 
         .stats { padding: 0.5rem 2rem; font-size: 0.8rem; color: #8b949e; border-bottom: 1px solid #21262d; }
 
-        /* Grid view — responsive columns + JS masonry reorder */
+        /* Grid view — CSS multi-column masonry (true column flow, no row gaps) */
         .grid {
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.2rem; padding: 1.5rem 2rem;
+            column-width: 280px; column-gap: 1.2rem; padding: 1.5rem 2rem;
         }
         .card {
             background: #161b22; border: 1px solid #30363d; border-radius: 8px;
             overflow: hidden; transition: transform 0.2s, border-color 0.2s;
             display: flex; flex-direction: column;
+            break-inside: avoid; margin-bottom: 1.2rem;
         }
         .card:hover { transform: translateY(-2px); border-color: #58a6ff; }
         .card-img { width: 100%; height: 160px; object-fit: cover; background: #21262d; display: block; }
@@ -179,45 +179,6 @@
             }
         }
 
-        function masonryReorder() {
-            const grid = document.getElementById('content-area');
-            if (!grid || grid.className !== 'grid') return;
-            const cards = [...grid.children];
-            if (cards.length === 0) return;
-
-            // Calculate number of columns from gridComputedStyle
-            const gridStyle = window.getComputedStyle(grid);
-            const gridWidth = grid.getBoundingClientRect().width;
-            const columnWidth = parseFloat(gridStyle.gridTemplateColumns.split(' ')[0]) || 280;
-            const gap = parseFloat(gridStyle.gap) || parseFloat(gridStyle.columnGap) || 19;
-            const numCols = Math.max(1, Math.floor((gridWidth + gap) / (columnWidth + gap)));
-
-            if (numCols <= 1) return; // Single column — no reorder needed
-
-            // Measure card heights
-            const heights = cards.map(c => c.getBoundingClientRect().height);
-
-            // Distribute cards to columns using greedy smallest-column approach
-            const colHeights = new Array(numCols).fill(0);
-            const colAssignments = new Array(numCols).fill().map(() => []);
-
-            for (let i = 0; i < cards.length; i++) {
-                // Find shortest column
-                const shortestCol = colHeights.indexOf(Math.min(...colHeights));
-                colAssignments[shortestCol].push(cards[i]);
-                colHeights[shortestCol] += heights[i] + gap;
-            }
-
-            // Reorder DOM: flatten columns left-to-right
-            const ordered = colAssignments.flat();
-            // Only reorder if order actually changed
-            const currentOrder = [...grid.children].map(c => c);
-            const needsReorder = ordered.some((c, i) => c !== currentOrder[i]);
-            if (needsReorder) {
-                ordered.forEach(c => grid.appendChild(c)); // append moves existing nodes
-            }
-        }
-
         function timeAgo(dateStr) {
             const d = new Date(dateStr);
             const now = new Date();
@@ -313,8 +274,6 @@
                         </div>
                     </div>`;
                 }).join('');
-                // Masonry reorder: distribute cards evenly across columns by height
-                requestAnimationFrame(() => masonryReorder());
             } else {
                 // List view
                 area.className = 'list';
@@ -406,13 +365,6 @@
         });
 
         loadNews();
-
-        // Re-run masonry on resize (column count changes with window size)
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(() => masonryReorder(), 150);
-        });
     </script>
 </body>
 </html>
