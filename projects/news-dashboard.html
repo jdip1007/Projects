@@ -46,9 +46,9 @@
 
         .stats { padding: 0.5rem 2rem; font-size: 0.8rem; color: #8b949e; border-bottom: 1px solid #21262d; }
 
-        /* Grid view — CSS multi-column masonry (true column flow, no row gaps) */
+        /* Grid view — JS-driven column count for true responsive masonry */
         .grid {
-            column-width: 280px; column-gap: 1.2rem; padding: 1.5rem 2rem;
+            column-gap: 1.2rem; column-fill: balance; padding: 1.5rem 2rem;
         }
         .card {
             background: #161b22; border: 1px solid #30363d; border-radius: 8px;
@@ -365,6 +365,25 @@
         });
 
         loadNews();
+
+        // Dynamically set column-count based on viewport width
+        const COL_WIDTH = 320; // desired column width in px
+        function updateColumnCount() {
+            const grid = document.getElementById('content-area');
+            if (!grid || grid.className !== 'grid') return;
+            const availWidth = grid.getBoundingClientRect().width;
+            const gap = parseFloat(window.getComputedStyle(grid).columnGap) || 19;
+            const numCols = Math.max(1, Math.floor((availWidth + gap) / (COL_WIDTH + gap)));
+            grid.style.columnCount = numCols;
+        }
+        // Update on render and resize
+        const origRender = render;
+        render = function() { origRender(); updateColumnCount(); };
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(updateColumnCount, 150);
+        });
     </script>
 </body>
 </html>
