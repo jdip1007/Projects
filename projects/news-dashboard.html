@@ -123,16 +123,20 @@
                 <button class="tag-btn" data-cat="business">Finance</button>
                 <button class="tag-btn" data-cat="science">Science</button>
                 <button class="tag-btn" data-cat="health">Health</button>
+                <button class="tag-btn" data-cat="entertainment">Entertainment</button>
+                <button class="tag-btn" data-cat="sports">Sports</button>
+                <button class="tag-btn" data-cat="social">Social</button>
+                <button class="tag-btn" data-cat="headlines">Headlines</button>
                 <button class="tag-btn" data-cat="politics">Politics</button>
             </div>
         </div>
-        <!-- Time range filters -->
+        <!-- Time range filters — based on article publishedAt date -->
         <div class="filter-group">
-            <div class="filter-label">Time Range</div>
+            <div class="filter-label">Article Published Within</div>
             <div class="filter-row" id="time-filters">
-                <button class="tag-btn" data-time="1w">Within 1 Week</button>
-                <button class="tag-btn" data-time="1m">Within 1 Month</button>
-                <button class="tag-btn" data-time="1y">Within 1 Year</button>
+                <button class="tag-btn" data-time="1w">1 Week</button>
+                <button class="tag-btn" data-time="1m">1 Month</button>
+                <button class="tag-btn" data-time="1y">1 Year</button>
             </div>
         </div>
         <!-- Search + view toggle -->
@@ -185,6 +189,20 @@
             return d.toLocaleDateString();
         }
 
+        // Category mapping: dashboard label → DB category values
+        // "Finance" on dashboard maps to both "business" and "finance" in data
+        function matchCategory(article, selectedCats) {
+            const cat = (article.category || '').toLowerCase();
+            for (const selected of selectedCats) {
+                const s = selected.toLowerCase();
+                // Finance button matches business + finance
+                if (s === 'business' && (cat === 'business' || cat === 'finance')) return true;
+                if (s === 'finance' && (cat === 'business' || cat === 'finance')) return true;
+                if (cat === s) return true;
+            }
+            return false;
+        }
+
         function getFiltered() {
             const search = document.getElementById('search').value.toLowerCase();
             let filtered = allArticles;
@@ -193,15 +211,10 @@
                 filtered = filtered.filter(a => activeRegions.has(a.region));
             }
             if (activeCategories.size > 0) {
-                // Map "business" to also match "finance" labeled articles
-                filtered = filtered.filter(a => {
-                    let cat = a.category || '';
-                    if (activeCategories.has('business') && (cat === 'business' || cat === 'finance')) return true;
-                    if (activeCategories.has('finance') && (cat === 'business' || cat === 'finance')) return true;
-                    return activeCategories.has(cat);
-                });
+                filtered = filtered.filter(a => matchCategory(a, activeCategories));
             }
             if (activeTimeRange) {
+                // Filter by article's publishedAt date (when the article was published), NOT fetch_time
                 const now = new Date();
                 let cutoff;
                 if (activeTimeRange === '1w') cutoff = new Date(now - 7*24*60*60*1000);
@@ -317,7 +330,7 @@
             });
         });
 
-        // Time range filter (single-select)
+        // Time range filter (single-select, based on publishedAt)
         document.querySelectorAll('#time-filters .tag-btn').forEach(btn => {
             btn.addEventListener('click', () => {
                 const time = btn.dataset.time;
@@ -325,7 +338,6 @@
                     activeTimeRange = null;
                     btn.classList.remove('active-time');
                 } else {
-                    // Clear all other time buttons
                     document.querySelectorAll('#time-filters .tag-btn').forEach(b => b.classList.remove('active-time'));
                     activeTimeRange = time;
                     btn.classList.add('active-time');
