@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-08T07:12:09.946191+00:00",
+  "lastUpdated": "2026-09-08T07:35:00.970563+00:00",
   "totalArticles": 14533,
   "articles": [
     {
@@ -43,7 +43,7 @@
       "url": "https://www.cnbc.com/2026/09/07/stock-market-today-live-updates.html",
       "image": "https://image.cnbcfm.com/api/v1/image/108357833-1788364301709-Traders-OB-20260902-ACJ-PRESS-8.jpg?v=1788364539&w=1920&h=1080",
       "publishedAt": "2026-09-07T06:28:00Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -54,7 +54,7 @@
       "url": "https://www.cnbc.com/2026/09/07/china-state-banks-lenders-insurers-capital-solvency-bankrupt-nim-.html",
       "image": "https://image.cnbcfm.com/api/v1/image/108359358-1788744345070-gettyimages-2286037889-img_0187.jpeg?v=1788744405&w=1920&h=1080",
       "publishedAt": "2026-09-07T06:27:53Z",
-      "category": "general",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -142,7 +142,7 @@
       "url": "https://finance.yahoo.com/economy/article/inflation-data-oracle-earnings-and-an-energy-supply-crunch-what-to-watch-this-week-120429533.html",
       "image": "https://s.yimg.com/lo/mysterio/api/589e5bd4a739b81a4a2149668e75d7d6740a1de0544304c90a1b32ffa3637bc1/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fd29szjachogqwa.cloudfront.net%2Fimages%2Fuser-uploaded%2F808ec4ab-2d63-4ba2-b912-ec126aa70427_cfc81d2fd66ce33aec67f7d8cd411c300cacb630bfcda88a7ffc0cd12018af51.jpg",
       "publishedAt": "2026-09-07T04:52:00Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -329,7 +329,7 @@
       "url": "https://www.polygon.com/nintendo-zelda-direct-date-time-september-2026/",
       "image": null,
       "publishedAt": "2026-09-07T03:16:00Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -351,7 +351,7 @@
       "url": "https://www.nbcsports.com/nfl/profootballtalk/rumor-mill/news/western-michigan-michigan-outcome-created-chaos-for-kalshi",
       "image": "https://nbcsports.brightspotcdn.com/dims4/default/e8619f2/2147483647/strip/true/crop/6000x3375+0+0/resize/1440x810!/quality/90/?url=https%3A%2F%2Fnbc-sports-production-nbc-sports.s3.us-east-1.amazonaws.com%2Fbrightspot%2Fb2%2F3c%2Fcdbea4c94c8bad4e95e86ed1034b%2Fhttps-delivery-gettyimages.com%2Fdownloads%2F2265194915",
       "publishedAt": "2026-09-07T03:08:15Z",
-      "category": "general",
+      "category": "sports",
       "region": "United States"
     },
     {
@@ -494,7 +494,7 @@
       "url": "https://www.usatoday.com/story/sports/wnba/2026/09/06/usa-vs-italy-fiba-world-cup-winners-losers-angel-reese/91643634007/",
       "image": "https://www.usatoday.com/gcdn/authoring/authoring-images/2026/09/06/USAT/91645116007-getty-images-2293407774.jpg?crop=3933,2213,x0,y2069&width=3200&height=1801&format=pjpg&auto=webp",
       "publishedAt": "2026-09-07T02:20:00Z",
-      "category": "general",
+      "category": "sports",
       "region": "United States"
     },
     {
@@ -604,7 +604,7 @@
       "url": "https://pagesix.com/2026/09/06/celebrity-news/14-fans-rushed-to-the-hospital-at-chainsmokers-california-concert-second-incident-in-weeks/",
       "image": "https://pagesix.com/wp-content/uploads/sites/3/2026/09/139952638.jpg?quality=75&strip=all&w=1200",
       "publishedAt": "2026-09-07T01:36:00Z",
-      "category": "general",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -769,7 +769,7 @@
       "url": "https://finance.yahoo.com/energy/articles/oil-extends-gains-us-iran-001532615.html",
       "image": "https://s.yimg.com/lo/mysterio/api/c497885220438ec87c3e04e08df008febe554de64b17cc6d29d2f55abda7f497/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Freuters.com%2F5ef2e8b9fbeaad47c99c7ad1b8a66931.jpg",
       "publishedAt": "2026-09-07T00:15:00Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -934,7 +934,7 @@
       "url": "https://www.washingtonpost.com/world/2026/09/06/deadly-iran-wedding-strike-likely-due-us-weapon-missing-nearby-target/",
       "image": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/ZHJWUTFOB5BBMCVQCYLBUXKXMQ_size-normalized.jpg&w=1440",
       "publishedAt": "2026-09-06T23:25:18Z",
-      "category": "general",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -945,7 +945,7 @@
       "url": "https://www.sfchronicle.com/sf/article/mountain-lion-park-questions-22420123.php",
       "image": "https://s.hdnux.com/photos/01/67/21/54/31267592/5/rawImage.jpg",
       "publishedAt": "2026-09-06T23:21:32Z",
-      "category": "entertainment",
+      "category": "general",
       "region": "United States"
     },
     {
@@ -989,7 +989,7 @@
       "url": "http://unherd.com/2026/09/the-next-financial-crash-a-scenario/?edition=us",
       "image": "https://unherd.com/wp-content/uploads/2026/09/GettyImages-2292626872.jpg",
       "publishedAt": "2026-09-06T23:06:29Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -1022,7 +1022,7 @@
       "url": "https://www.cbsnews.com/news/sharswood-cemetery-60-minutes/",
       "image": "https://assets3.cbsnewsstatic.com/hub/i/r/2022/05/15/17915469-a221-4cc7-8124-2eb19b005abf/thumbnail/1200x630/3acecef0e505ccfea19472fd8e86c8a9/ot-sharswoodfd.jpg",
       "publishedAt": "2026-09-06T23:00:00Z",
-      "category": "entertainment",
+      "category": "social",
       "region": "United States"
     },
     {
@@ -1044,7 +1044,7 @@
       "url": "https://www.kcra.com/article/4-injured-in-early-morning-sacramento-shootings/73624932",
       "image": "https://kubrick.htvapps.com/vidthumb/9785eda7-f386-4d4f-81fb-aaee8b86bad3/1f9d0373-cdec-4950-b3dd-3ea1f70a8117.jpg?crop=1xw%3A1.0xh%3Bcenter%2Ctop&resize=1200%3A*",
       "publishedAt": "2026-09-06T23:00:00Z",
-      "category": "sports",
+      "category": "social",
       "region": "United States"
     },
     {
@@ -1198,7 +1198,7 @@
       "url": "https://www.bloomberg.com/news/articles/2026-09-06/stock-market-today-dow-s-p-live-updates",
       "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iT374IfsyZZw/v1/1200x800.jpg",
       "publishedAt": "2026-09-06T22:15:34Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -1209,7 +1209,7 @@
       "url": "https://finance.yahoo.com/technology/articles/apple-aapl-sets-iphone-launch-221225248.html",
       "image": "https://s.yimg.com/lo/mysterio/api/f9d85d19c23057a7536a5babb10f61ad0dd1eda439d5fbe8852831f6d9809c4c/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Finsidermonkey.com%2F410ac07c4c90786d8592963501a2ed84.jpg",
       "publishedAt": "2026-09-06T22:12:25Z",
-      "category": "general",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -1484,7 +1484,7 @@
       "url": "https://thenextweb.com/news/musk-x-twitter-bird-logo-tweet-trademark-ruling",
       "image": "https://media.thenextweb.com/2026/09/elon-musk-air-force-academy-2022.jpg",
       "publishedAt": "2026-09-06T20:50:37Z",
-      "category": "business",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -1539,7 +1539,7 @@
       "url": "https://www.cnet.com/tech/tech-industry/the-top-tech-trends-at-ifa-berlin-2026-2/",
       "image": "https://www.cnet.com/wp-content/uploads/sites/2/IFA-Intro-Image-Messe-Center.jpeg",
       "publishedAt": "2026-09-06T20:31:53Z",
-      "category": "general",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -1638,7 +1638,7 @@
       "url": "https://www.polygon.com/steam-ominusha-way-of-the-sword-number-1-game/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/08/onimusha-way-of-the-sword-feather-battle.jpg?w=1600&h=900&fit=crop",
       "publishedAt": "2026-09-06T20:11:13Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -1858,7 +1858,7 @@
       "url": "https://www.salon.com/2026/09/06/measles-death-undercuts-rfk-jr-s-doubts/",
       "image": "https://www.salon.com/app/uploads/2026/09/GettyImages-2289371678-e1788715020793.jpg",
       "publishedAt": "2026-09-06T19:00:45Z",
-      "category": "general",
+      "category": "health",
       "region": "United States"
     },
     {
@@ -1990,7 +1990,7 @@
       "url": "http://www.hollywoodreporter.com/movies/movie-news/lee-chang-dong-possible-love-acclaim-venice-1236692360/",
       "image": "https://www.hollywoodreporter.com/wp-content/uploads/2026/09/GettyImages-2293338616.jpg?w=1440&h=810&crop=1",
       "publishedAt": "2026-09-06T18:17:29Z",
-      "category": "general",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -2408,7 +2408,7 @@
       "url": "https://airlive.net/emergency/2026/09/06/united-ua1011-declared-an-emergency-2-hours-after-departure-from-washington-and-diverted-to-newark/",
       "image": "https://airlive.net/wp-content/uploads/2026/09/UA1011.jpg",
       "publishedAt": "2026-09-06T16:10:09Z",
-      "category": "business",
+      "category": "general",
       "region": "United States"
     },
     {
@@ -2507,7 +2507,7 @@
       "url": "https://techcrunch.com/2026/09/06/lets-take-a-look-at-the-retro-tech-making-a-comeback/",
       "image": "https://techcrunch.com/wp-content/uploads/2025/09/phone-records-neon-mobile-2198206872.jpg?resize=1200,839",
       "publishedAt": "2026-09-06T16:00:00Z",
-      "category": "general",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -2518,7 +2518,7 @@
       "url": "https://www.washingtonpost.com/technology/2026/09/06/she-lost-her-sight-her-billionaire-father-bet-daring-new-treatment/",
       "image": "https://www.washingtonpost.com/wp-apps/imrs.php?src=https://cloudfront-us-east-1.images.arcpublishing.com/wapo/X7PFUHKW6N6QDGO2FOC46UMEIU.JPG&w=1440",
       "publishedAt": "2026-09-06T16:00:00Z",
-      "category": "business",
+      "category": "health",
       "region": "United States"
     },
     {
@@ -3123,7 +3123,7 @@
       "url": "https://www.theverge.com/games/990691/competitive-pokemon-champions-mobile-tournament-accessibility",
       "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/IMG_4405_91ad42.jpg?quality=90&strip=all&crop=0%2C3.6786993662166%2C100%2C92.642601267567&w=1200",
       "publishedAt": "2026-09-06T13:00:00Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -3244,7 +3244,7 @@
       "url": "https://www.polygon.com/goty-2026-game-awards-blood-dawnwalker-onimusha-orbitals/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/09/the_blood_of_dawnwalker_launch_screenshot_-3.png?w=1600&h=900&fit=crop",
       "publishedAt": "2026-09-06T12:00:14Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -3838,7 +3838,7 @@
       "url": "https://www.huaweicentral.com/huawei-mate-xt-2s-privacy-screen-feature/",
       "image": "https://www.huaweicentral.com/wp-content/uploads/2026/09/Privacy-Display-teaser.jpg",
       "publishedAt": "2026-09-06T06:43:35Z",
-      "category": "general",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -4663,7 +4663,7 @@
       "url": "https://www.techpowerup.com/352397/the-blood-of-dawnwalker-sells-1-million-copies-days-after-launch",
       "image": "https://www.techpowerup.com/img/c0Erk6tYMw8eJ7ne.jpg",
       "publishedAt": "2026-09-05T23:15:49Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -5983,7 +5983,7 @@
       "url": "https://kotaku.com/bungie-is-exploring-subleasing-parts-of-its-massive-210984-sq-ft-studio-after-laying-off-more-than-600-people-in-just-three-years-2000731541",
       "image": "https://kotaku.com/app/uploads/2026/05/destiny2a.jpg",
       "publishedAt": "2026-09-05T15:30:01Z",
-      "category": "technology",
+      "category": "business",
       "region": "United States"
     },
     {
@@ -6104,7 +6104,7 @@
       "url": "https://www.polygon.com/exodus-romance-options-interview-salt/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/09/exodus-salt.jpg?w=1600&h=900&fit=crop",
       "publishedAt": "2026-09-05T15:04:01Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -6676,7 +6676,7 @@
       "url": "https://www.polygon.com/switchboard-mario-kart-8-deluxe-update-4-0/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/chorus/uploads/chorus_asset/file/8330553/mario_kart_8_deluxe_mario_1920.jpg?w=1200&h=675&fit=crop",
       "publishedAt": "2026-09-05T12:00:14Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -6753,7 +6753,7 @@
       "url": "https://fortnitetracker.com/events/epicgames_S42_SoloVictoryCup_NAW?window\\\\u003dS42_SoloVictoryCup_Event1Round2_NAW",
       "image": "https://trackercdn.com/unreal/en-fnce-38-00-competitive-discoverytile-victorycashcup-1980x1020-1920x1080-78ff675a71dc.jpg",
       "publishedAt": "2026-09-05T11:40:33Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -27488,7 +27488,7 @@
       "url": "https://www.polygon.com/orbitals-review-switch-2-co-op-game/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/08/nintendoswitch2_orbitals_screenshot-9.png?w=1600&h=900&fit=crop",
       "publishedAt": "2026-09-01T09:00:14Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
