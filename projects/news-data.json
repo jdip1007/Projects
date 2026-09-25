@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-09-25T07:23:10.591975+00:00",
+  "lastUpdated": "2026-09-25T08:04:27.111251+00:00",
   "totalArticles": 13665,
   "articles": [
     {
@@ -10,7 +10,7 @@
       "url": "https://www.fly4free.com/flight-deals/europe/flights-from-london-to-hong-kong-p306-2/",
       "image": "https://assets.fly4free.com/wp-content/uploads/2026/09/Hong-Kong_PH_jeanne-rose-gomez-4OSfiYh4j8o-unsplash-800x492.jpg",
       "publishedAt": "2026-09-24T07:00:51Z",
-      "category": "entertainment",
+      "category": "business",
       "region": "Hong Kong"
     },
     {
@@ -32,7 +32,7 @@
       "url": "https://onefootball.com/en/news/diomande-raphinha-javier-aguirre-variety-on-thursdays-front-pages-43511965",
       "image": "https://s.yimg.com/lo/mysterio/api/395ddfa889365e9a654e5f7da1b09c584754b9fca6288aaddc2cb3d7b34aa420/lightyear_networkapi/resizefill_w1200_h675%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fonefootball_articles_802%2F57bfacab06117d8cc09bcf18a6382310.jpg",
       "publishedAt": "2026-09-24T06:37:00Z",
-      "category": "headlines",
+      "category": "sports",
       "region": "Australia"
     },
     {
@@ -54,7 +54,7 @@
       "url": "https://thenextweb.com/news/openai-agent-medicare-statistics-portal-australia",
       "image": "https://media.thenextweb.com/2026/09/Prime-Minister-Anthony-Albanese.jpg",
       "publishedAt": "2026-09-24T06:05:09Z",
-      "category": "general",
+      "category": "technology",
       "region": "Australia"
     },
     {
@@ -76,7 +76,7 @@
       "url": "https://www.npr.org/2026/09/24/g-s1-144837/venezuela-leader-un-general-assembly",
       "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4933x2775+0+257/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F93%2Fbd%2Fe2a684184a1fab52107079f3c3c5%2Fap26266836312668.jpg",
       "publishedAt": "2026-09-24T05:40:49Z",
-      "category": "general",
+      "category": "politics",
       "region": "Global"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://www.npr.org/2026/09/24/g-s1-144835/openai-breach-australia",
       "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/5689x3200+0+296/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fb4%2F1a%2F1855490546fd8a2151f28552ce2c%2Fap26267014342871.jpg",
       "publishedAt": "2026-09-24T05:14:11Z",
-      "category": "general",
+      "category": "technology",
       "region": "Australia"
     },
     {
@@ -131,7 +131,7 @@
       "url": "https://ktla.com/news/nationworld/death-of-jennifer-eckhart-former-fox-news-producer-ruled-suicide/",
       "image": "https://ktla.com/wp-content/uploads/sites/4/2026/09/Jennifer-Eckhart.jpg?w=1280",
       "publishedAt": "2026-09-24T05:06:32Z",
-      "category": "entertainment",
+      "category": "general",
       "region": "United States"
     },
     {
@@ -142,7 +142,7 @@
       "url": "https://www.digitimes.com/news/a20260924VL209/beijing-risc-v-chips-industrial-growth.html",
       "image": "https://img.digitimes.com/newsshow/20260924vl209_files/2_b.jpg",
       "publishedAt": "2026-09-24T04:55:00Z",
-      "category": "technology",
+      "category": "finance",
       "region": "Hong Kong"
     },
     {
@@ -186,7 +186,7 @@
       "url": "https://www.npr.org/2026/09/23/nx-s1-5979140/hurricane-polo-mexico-nolo-hawaii",
       "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/1424x801+0+310/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2F07%2F1a%2Ffebfbd104b0eabb3752a248e5aac%2Fap26265650691692.jpg",
       "publishedAt": "2026-09-24T03:19:45Z",
-      "category": "technology",
+      "category": "science",
       "region": "United States"
     },
     {
@@ -219,7 +219,7 @@
       "url": "https://www.boredpanda.com/stupid-things-americans-say-screenshots/",
       "image": "https://static.boredpanda.com/blog/wp-content/uploads/2026/09/stupid-things-americans-say-screenshots-fb.jpg",
       "publishedAt": "2026-09-24T03:08:00Z",
-      "category": "technology",
+      "category": "social",
       "region": "Australia"
     },
     {
@@ -252,7 +252,7 @@
       "url": "https://www.aljazeera.com/news/2026/9/24/australia-says-openai-agent-hacked-medicare-portal",
       "image": "https://www.aljazeera.com/wp-content/uploads/2026/09/AFP__20260922__C9363FE__v1__HighRes__SpeechesByHeadsOfStateAndGovernmentAtUnGeneralA-1790203629.jpg?resize=1920%2C1440",
       "publishedAt": "2026-09-24T02:34:58Z",
-      "category": "general",
+      "category": "technology",
       "region": "Australia"
     },
     {
@@ -263,7 +263,7 @@
       "url": "https://economictimes.indiatimes.com/tech/artificial-intelligence/meta-bets-big-on-wearable-ai-muse-as-mark-zuckerberg-pushes-back-against-ai-doom/articleshow/134449727.cms",
       "image": "https://img.etimg.com/thumb/width-1200,height-900,imgsize-8997512,resizemode-75,msid-134449727/tech/artificial-intelligence/meta-bets-big-on-wearable-ai-muse-as-mark-zuckerberg-pushes-back-against-ai-doom.jpg",
       "publishedAt": "2026-09-24T02:34:53Z",
-      "category": "entertainment",
+      "category": "technology",
       "region": "Hong Kong"
     },
     {
@@ -307,7 +307,7 @@
       "url": "http://www.crikey.com.au/2026/09/24/immigration-policy-white-australia-racism-john-howard-federation-pauline-hanson/",
       "image": "https://assets.crikey.com.au/wp-content/uploads/sites/3/2026/09/Immigration-freak-out_1680x945.jpg?quality=70&w=1312",
       "publishedAt": "2026-09-24T02:13:45Z",
-      "category": "headlines",
+      "category": "politics",
       "region": "Australia"
     },
     {
@@ -340,7 +340,7 @@
       "url": "https://boingboing.net/2026/09/23/actor-richard-harrison-who-battled-nazis-and-ninjas-dead-at-90.html",
       "image": "https://boingboing.net/wp-content/uploads/2026/09/ninjaempire.jpg",
       "publishedAt": "2026-09-24T02:01:25Z",
-      "category": "social",
+      "category": "entertainment",
       "region": "Hong Kong"
     },
     {
@@ -395,7 +395,7 @@
       "url": "https://www.businessinsider.com/openai-bot-hacked-australian-government-website-anthony-albanese-2026-9#article",
       "image": "https://i.insider.com/6ab47a10eb72254112679ef7?width=1200&format=jpeg",
       "publishedAt": "2026-09-24T01:38:36Z",
-      "category": "general",
+      "category": "technology",
       "region": "Australia"
     },
     {
@@ -406,7 +406,7 @@
       "url": "https://www.foxbusiness.com/technology/anthropic-ceo-says-ai-could-cure-most-major-diseases-within-next-decade",
       "image": "https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2026/06/0/0/dario-amodei-anthropic-june-2026.jpg?ve=1&tl=1",
       "publishedAt": "2026-09-24T01:37:00Z",
-      "category": "business",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -450,7 +450,7 @@
       "url": "https://www.buzzfeed.com/jamieko/weird-habits-people-do-in-private",
       "image": "https://img.buzzfeed.com/buzzfeed-static/static/2026-09/15/17/thumb/DMk_X_a4f.jpg?crop=2500:1309;0,139%26downsize=1250:*",
       "publishedAt": "2026-09-24T01:01:02Z",
-      "category": "politics",
+      "category": "social",
       "region": "United States"
     },
     {
@@ -461,7 +461,7 @@
       "url": "https://economictimes.indiatimes.com/markets/us-stocks/news/global-market-today-asian-stocks-waver-as-oil-gains-fuel-inflation-rate-concerns/articleshow/134448968.cms",
       "image": "https://img.etimg.com/thumb/msid-134448988,width-1200,height-630,imgsize-242288,overlay-etmarkets/articleshow.jpg",
       "publishedAt": "2026-09-24T01:00:46Z",
-      "category": "business",
+      "category": "finance",
       "region": "Australia"
     },
     {
@@ -549,7 +549,7 @@
       "url": "https://economictimes.indiatimes.com/news/defence/pentagon-investigates-after-china-obtains-parts-from-f-35-stealth-fighter-jet/articleshow/134448845.cms",
       "image": "https://img.etimg.com/thumb/msid-134448844,width-1200,height-630,imgsize-33578,overlay-etdefence/articleshow.jpg",
       "publishedAt": "2026-09-24T00:43:10Z",
-      "category": "science",
+      "category": "politics",
       "region": "Hong Kong"
     },
     {
@@ -560,7 +560,7 @@
       "url": "https://www.abc.net.au/news/2026-09-24/openai-agents-plotted-to-access-data-amid-medicare-hack/107189504",
       "image": "https://live-production.wcms.abc-cdn.net.au/a22def60d73f79a9970d886160e842e8?impolicy=wcms_watermark_news&cropH=2250&cropW=4000&xPos=0&yPos=208&width=862&height=485&imformat=generic",
       "publishedAt": "2026-09-24T00:42:50Z",
-      "category": "health",
+      "category": "technology",
       "region": "Australia"
     },
     {
@@ -571,7 +571,7 @@
       "url": "https://abcnews.com/US/wireStory/pentagon-investigates-after-china-obtains-parts-35-stealth-136704288",
       "image": "https://i.abcnewsfe.com/a/1ebbc37b-900b-4ac0-b2fb-1156b35f77e1/wirestory_c0b248635c79cae9446a2bd7bf4a32f8_16x9.jpg?w=1600",
       "publishedAt": "2026-09-24T00:42:49Z",
-      "category": "science",
+      "category": "politics",
       "region": "Hong Kong"
     },
     {
@@ -582,7 +582,7 @@
       "url": "https://abcnews.com/GMA/Food/167000-pounds-meat-recalled-nationwide/story?id\\\\u003d136698517",
       "image": null,
       "publishedAt": "2026-09-24T00:33:45Z",
-      "category": "business",
+      "category": "health",
       "region": "United States"
     },
     {
@@ -615,7 +615,7 @@
       "url": "https://finance.yahoo.com/news/australia-pm-albanese-says-openai-204422718.html",
       "image": "https://s.yimg.com/lo/mysterio/api/ac9b3bbf6677cc73eed5cd8d3d9493952b05fd0b4df1f8499fd1f164476a1913/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Freuters.com%2F56b87e0754a37e8efbaba7f0802b50aa.jpg",
       "publishedAt": "2026-09-24T00:17:36Z",
-      "category": "general",
+      "category": "technology",
       "region": "Australia"
     },
     {
@@ -626,7 +626,7 @@
       "url": "https://pagesix.com/2026/09/23/society/chatter-around-cnn-deal-says-kara-swisher-is-quitting-over-ex-nellie-bowles/",
       "image": "https://pagesix.com/wp-content/uploads/sites/3/2026/09/142227629.jpg?quality=75&strip=all&w=1200",
       "publishedAt": "2026-09-24T00:16:00Z",
-      "category": "entertainment",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -670,7 +670,7 @@
       "url": "https://www.theregister.com/security/2026/09/24/openai-agents-infiltrated-australian-government-website/5298702",
       "image": "https://image.theregister.com/5298708.jpg?imageId=5298708&x=0&y=0&cropw=100&croph=100&panox=0&panoy=0&panow=100&panoh=100&width=1200&height=683",
       "publishedAt": "2026-09-24T00:03:03Z",
-      "category": "health",
+      "category": "politics",
       "region": "Australia"
     },
     {
@@ -703,7 +703,7 @@
       "url": "https://www.nature.com/articles/d41586-026-03024-z",
       "image": "https://media.nature.com/lw1200/magazine-assets/d41586-026-03024-z/d41586-026-03024-z_53757860.jpg",
       "publishedAt": "2026-09-24T00:00:00Z",
-      "category": "general",
+      "category": "technology",
       "region": "Australia"
     },
     {
@@ -725,7 +725,7 @@
       "url": "https://www.bloomberg.com/news/articles/2026-09-23/meta-debuts-a-dedicated-palm-sized-muse-charm-device-to-use-ai-on-the-go",
       "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iiwgxZrUIU9o/v0/1200x800.jpg",
       "publishedAt": "2026-09-23T23:57:28Z",
-      "category": "business",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -769,7 +769,7 @@
       "url": "http://deadline.com/2026/09/paramount-merger-will-warner-bros-survive-1237111495/",
       "image": "https://deadline.com/wp-content/uploads/2026/02/paramount-warner-bros-towers.jpg?w=1024",
       "publishedAt": "2026-09-23T23:34:00Z",
-      "category": "entertainment",
+      "category": "business",
       "region": "United States"
     },
     {
@@ -791,7 +791,7 @@
       "url": "https://gizmodo.com/this-situation-is-obviously-unacceptable-australian-pm-displeased-by-openai-agent-hacking-his-country-2000816424",
       "image": "https://gizmodo.com/app/uploads/2026/09/albanese-angry-1200x675.jpg",
       "publishedAt": "2026-09-23T23:32:23Z",
-      "category": "general",
+      "category": "technology",
       "region": "Australia"
     },
     {
@@ -901,7 +901,7 @@
       "url": "https://addicted2success.com/wealth/best-smsf-setup-firms-sydney/",
       "image": "https://addicted2success.com/wp-content/uploads/2026/09/Woman-working-in-SMSF-office-in-Sydney-Australia-1000x600.jpeg",
       "publishedAt": "2026-09-23T23:11:48Z",
-      "category": "headlines",
+      "category": "finance",
       "region": "Australia"
     },
     {
@@ -934,7 +934,7 @@
       "url": "https://www.wsj.com/business/logistics/how-the-panama-canal-became-a-50-mile-waterway-with-a-5-million-ticket-price-271095f4",
       "image": null,
       "publishedAt": "2026-09-23T23:02:41Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -989,7 +989,7 @@
       "url": "https://www.investors.com/news/technology/grail-stock-fda-advisory-committee-meeting-galleri-blood-test/",
       "image": "https://www.investors.com/wp-content/uploads/2018/01/Stock-drugs-10-adobe.jpg",
       "publishedAt": "2026-09-23T22:44:00Z",
-      "category": "business",
+      "category": "health",
       "region": "United States"
     },
     {
@@ -1077,7 +1077,7 @@
       "url": "https://www.bbc.co.uk/news/articles/c6vgy0333dppo",
       "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/f010/live/69f3ee00-b795-11f1-a430-4d16ee157c41.jpg",
       "publishedAt": "2026-09-23T22:23:28Z",
-      "category": "general",
+      "category": "technology",
       "region": "Australia"
     },
     {
@@ -1121,7 +1121,7 @@
       "url": "https://bitcoinfoundation.org/news/analysis/qnt-crypto-price-prediction/",
       "image": "https://bitcoinfoundation.org/wp-content/uploads/2026/09/image-1790201376.webp",
       "publishedAt": "2026-09-23T22:08:45Z",
-      "category": "headlines",
+      "category": "finance",
       "region": "Hong Kong"
     },
     {
@@ -1154,7 +1154,7 @@
       "url": "https://www.nature.com/articles/d41586-026-02947-x",
       "image": "https://media.nature.com/lw1200/magazine-assets/d41586-026-02947-x/d41586-026-02947-x_53748350.jpg",
       "publishedAt": "2026-09-23T21:59:38Z",
-      "category": "health",
+      "category": "science",
       "region": "United States"
     },
     {
@@ -1187,7 +1187,7 @@
       "url": "https://www.buzzfeed.com/jamieko/older-adults-concerns-younger-generations",
       "image": "https://img.buzzfeed.com/buzzfeed-static/static/2026-09/23/20/thumb/9T6Xvx_ik.jpg?crop=2500:1309;0,15%26downsize=1250:*",
       "publishedAt": "2026-09-23T21:42:32Z",
-      "category": "politics",
+      "category": "social",
       "region": "United States"
     },
     {
@@ -1253,7 +1253,7 @@
       "url": "https://www.axios.com/2026/09/23/nvidia-jensen-huang-ai-doom-predictions",
       "image": "https://images.axios.com/rygH5HLtoHkw8wHMTGY5o0KbxPI=/0x0:7628x4291/1366x768/2026/09/23/1790175999084.jpeg",
       "publishedAt": "2026-09-23T21:26:57Z",
-      "category": "business",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -1275,7 +1275,7 @@
       "url": "https://arstechnica.com/gadgets/2026/09/disney-and-hulu-raise-prices-by-up-to-13-percent-after-doubling-profits/",
       "image": "https://cdn.arstechnica.net/wp-content/uploads/2022/12/The-Mandalorian-Season-3-1152x648.jpeg",
       "publishedAt": "2026-09-23T21:18:53Z",
-      "category": "entertainment",
+      "category": "business",
       "region": "United States"
     },
     {
@@ -1319,7 +1319,7 @@
       "url": "https://www.mediaite.com/media/news/chinese-government-in-possession-of-f-35-parts-that-were-mistakenly-diverted-to-hong-kong-report/",
       "image": "https://www.mediaite.com/wp-content/uploads/2025/06/Trump-Xi-1.jpg",
       "publishedAt": "2026-09-23T21:05:47Z",
-      "category": "technology",
+      "category": "politics",
       "region": "Hong Kong"
     },
     {
@@ -1363,7 +1363,7 @@
       "url": "https://www.wired.com/story/a-us-china-ai-hotline-wont-be-ready-for-a-while/",
       "image": "https://media.wired.com/photos/6ab2ef34ade3d66cae78e17b/191:100/w_1280,c_limit/politics_us_china_ai_talk.jpg",
       "publishedAt": "2026-09-23T21:00:00Z",
-      "category": "finance",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -1374,7 +1374,7 @@
       "url": "https://thenextweb.com/news/us-rejects-global-ai-governance",
       "image": "https://media.thenextweb.com/2026/09/United-Nations-Security-Council-Chamber.jpg",
       "publishedAt": "2026-09-23T20:56:03Z",
-      "category": "technology",
+      "category": "politics",
       "region": "Global"
     },
     {
@@ -1429,7 +1429,7 @@
       "url": "https://www.marketwatch.com/story/fewer-stocks-are-carrying-the-market-than-at-any-time-since-the-dot-com-peak-4033c4bb",
       "image": "https://images.mktw.net/im-94180621/social",
       "publishedAt": "2026-09-23T20:45:00Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -1440,7 +1440,7 @@
       "url": "https://www.channelnewsasia.com/business/australia-says-openai-agent-breached-government-health-data-portal-6406411",
       "image": "https://dam.mediacorp.sg/image/upload/s--1XxdTlp3--/c_fill,g_auto,h_676,w_1200/fl_relative,g_south_east,l_mediacorp:cna:watermark:2024-04:reuters_1,w_0.1/f_auto,q_auto/v1/one-cms/core/2026-09-23T215633Z_1_LYNXMPEM8M1Z8_RTROPTP_3_AI-OPENAI-MODEL.JPG?itok=dple727p",
       "publishedAt": "2026-09-23T20:44:22Z",
-      "category": "health",
+      "category": "technology",
       "region": "Australia"
     },
     {
@@ -1473,7 +1473,7 @@
       "url": "https://timesofindia.indiatimes.com/city/chandigarh/chandigarh-health-cadre-rules-face-opposition-from-punjab-govt-doctors-body/articleshow/134445701.cms",
       "image": "https://static.toiimg.com/thumb/msid-134445700,width-1280,height-720,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
       "publishedAt": "2026-09-23T20:37:41Z",
-      "category": "health",
+      "category": "headlines",
       "region": "Hong Kong"
     },
     {
@@ -1495,7 +1495,7 @@
       "url": "https://timesofindia.indiatimes.com/city/bhopal/how-hidden-costs-of-broken-roads-hurt-bhopal-households-businesses/articleshow/134445681.cms",
       "image": "https://static.toiimg.com/thumb/msid-134445680,width-1280,height-720,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
       "publishedAt": "2026-09-23T20:31:54Z",
-      "category": "health",
+      "category": "headlines",
       "region": "Hong Kong"
     },
     {
@@ -1528,7 +1528,7 @@
       "url": "https://www.wlwt.com/article/glp-1-ozempic-companies-lawsuits-vision-loss-naion/73855434",
       "image": "https://kubrick.htvapps.com/htv-prod/images/e24c496e-71a0-4186-8708-f392ea76ca59.jpg?crop=1.00xw%3A0.847xh%3B0%2C0&resize=1200%3A*",
       "publishedAt": "2026-09-23T20:25:07Z",
-      "category": "business",
+      "category": "health",
       "region": "United States"
     },
     {
@@ -1605,7 +1605,7 @@
       "url": "http://www.techdirt.com/2026/09/23/copyright-infringement-still-isnt-theft-even-when-a-microsoft-employee-says-it-is/",
       "image": "http://www.techdirt.com/wp-content/themes/techdirt/assets/images/td-rect-logo-white.png",
       "publishedAt": "2026-09-23T20:00:52Z",
-      "category": "headlines",
+      "category": "social",
       "region": "United States"
     },
     {
@@ -1693,7 +1693,7 @@
       "url": "http://electrek.co/2026/09/23/bentley-torcal-first-electric-bentley-unveiled/",
       "image": "https://electrek.co/wp-content/uploads/sites/3/2026/09/bentley-torcal-02.jpg?quality=82&strip=all&resize=1200,628",
       "publishedAt": "2026-09-23T19:33:00Z",
-      "category": "business",
+      "category": "general",
       "region": "United States"
     },
     {
@@ -1737,7 +1737,7 @@
       "url": "https://www.androidcentral.com/phones/qualcomm/band-together-qualcomm-founds-personal-ai-health-alliance-with-global-health-connector-and-more",
       "image": "https://cdn.mos.cms.futurecdn.net/La4uxgXguqKY5eBh9dtJLm-2560-80.jpg",
       "publishedAt": "2026-09-23T19:30:00Z",
-      "category": "health",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -1825,7 +1825,7 @@
       "url": "https://www.macrumors.com/2026/09/23/apple-sports-more-soccer-leagues/",
       "image": "https://images.macrumors.com/t/6s7x2HgD6QPrXonOrV6Bt7KgeyA=/2500x/article-new/2026/02/Apple-Sports-Feature.jpg",
       "publishedAt": "2026-09-23T19:07:30Z",
-      "category": "sports",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -1836,7 +1836,7 @@
       "url": "https://www.usatoday.com/story/money/consumer-protection/recalls-alerts/2026/09/23/pasta-sold-walmart-locations-nationwide-recalled/91906130007/",
       "image": "https://www.usatoday.com/gcdn/authoring/authoring-images/2026/09/23/USAT/91908708007-getty-images-2275790834.jpg?crop=5183,2916,x0,y0&width=3200&height=1801&format=pjpg&auto=webp",
       "publishedAt": "2026-09-23T19:07:00Z",
-      "category": "business",
+      "category": "health",
       "region": "United States"
     },
     {
@@ -1858,7 +1858,7 @@
       "url": "https://timesofindia.indiatimes.com/city/varanasi/need-to-boost-digi-health-services-bring-more-health-instt-under-abdm-experts/articleshow/134445014.cms",
       "image": "https://static.toiimg.com/thumb/msid-134445013,width-1280,height-720,resizemode-6,overlay-toi_sw,pt-32,y_pad-600/photo.jpg",
       "publishedAt": "2026-09-23T19:04:54Z",
-      "category": "health",
+      "category": "headlines",
       "region": "Hong Kong"
     },
     {
@@ -1869,7 +1869,7 @@
       "url": "https://www.foxsports.com/stories/nfl/justin-herbert-mike-mcdaniel-chargers-brock-purdy-49ers-mvp",
       "image": "https://a57.foxsports.com/statics.foxsports.com/www.foxsports.com/content/uploads/2026/09/1294/728/16x9wild-6.jpg?ve=1&tl=1",
       "publishedAt": "2026-09-23T18:55:40Z",
-      "category": "headlines",
+      "category": "sports",
       "region": "Australia"
     },
     {
@@ -1880,7 +1880,7 @@
       "url": "https://www.businessinsider.com/industries-made-americas-richest-people-2026-9#article",
       "image": "https://i.insider.com/6ab3f5ab265e3f8e338f610e?width=1200&format=jpeg",
       "publishedAt": "2026-09-23T18:52:36Z",
-      "category": "finance",
+      "category": "business",
       "region": "United States"
     },
     {
@@ -1902,7 +1902,7 @@
       "url": "https://www.abc.net.au/news/2026-09-24/ai-race-chips-data-energy-cake-stack-us-china-asia-pacific/107071946",
       "image": "https://live-production.wcms.abc-cdn.net.au/720fa15a29d88e1bd99d08c3237a16bd?impolicy=wcms_watermark_news&cropH=905&cropW=1609&xPos=141&yPos=0&width=862&height=485&imformat=generic",
       "publishedAt": "2026-09-23T18:44:33Z",
-      "category": "politics",
+      "category": "technology",
       "region": "Hong Kong"
     },
     {
@@ -1946,7 +1946,7 @@
       "url": "https://huggingface.co/apple/LensVLM-9B",
       "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/apple/LensVLM-9B.png",
       "publishedAt": "2026-09-23T18:36:29Z",
-      "category": "science",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -1957,7 +1957,7 @@
       "url": "https://www.entrepreneur.com/building-a-business/the-cfos-role-is-bigger-than-finance-heres-how-they-can-add-value-across-the-business",
       "image": "https://www.entrepreneur.com/wp-content/uploads/sites/2/2026/09/cfo-role-0926-g-1136815986.jpg?resize=1024,683",
       "publishedAt": "2026-09-23T18:30:00Z",
-      "category": "finance",
+      "category": "business",
       "region": "United States"
     },
     {
@@ -1968,7 +1968,7 @@
       "url": "https://gizmodo.com/americans-are-a-lot-more-worried-about-ai-than-the-rest-of-the-world-2000816089",
       "image": "https://gizmodo.com/app/uploads/2026/09/AIcybercrime-1200x675.jpg",
       "publishedAt": "2026-09-23T18:25:58Z",
-      "category": "headlines",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -1979,7 +1979,7 @@
       "url": "https://www.theverge.com/policy/999412/data-center-water-electricity-disclosure-bills",
       "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/06/STKS528_DATA_CENTERS2_B.jpg?quality=90&strip=all&crop=0%2C10.732984293194%2C100%2C78.534031413613&w=1200",
       "publishedAt": "2026-09-23T18:22:57Z",
-      "category": "science",
+      "category": "politics",
       "region": "Global"
     },
     {
@@ -2001,7 +2001,7 @@
       "url": "https://www.npr.org/2026/09/23/nx-s1-5978863/iran-president-united-nations-general-assembly",
       "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/4000x2249+0+26/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fb5%2F13%2F307a810041e88b26be27e72565d3%2Fgettyimages-2296136332.jpg",
       "publishedAt": "2026-09-23T18:14:40Z",
-      "category": "general",
+      "category": "politics",
       "region": "Global"
     },
     {
@@ -2034,7 +2034,7 @@
       "url": "https://www.techspot.com/news/113948-stanford-researchers-brain-actually-two-organs-pretending-one.html",
       "image": "https://www.techspot.com/images2/news/bigimage/2026/09/2026-09-23-image-23.jpg",
       "publishedAt": "2026-09-23T18:07:00Z",
-      "category": "health",
+      "category": "science",
       "region": "United States"
     },
     {
@@ -2078,7 +2078,7 @@
       "url": "https://variety.com/2026/tv/news/cnn-chief-enthusiastic-staying-paramount-but-not-sure-1236873560/",
       "image": "https://variety.com/wp-content/uploads/2020/04/GettyImages-683324916.jpg?w=1000&h=563&crop=1",
       "publishedAt": "2026-09-23T17:59:00Z",
-      "category": "entertainment",
+      "category": "business",
       "region": "United States"
     },
     {
@@ -2089,7 +2089,7 @@
       "url": "https://www.cnbc.com/2026/09/23/social-security-retirement-age-physical-jobs.html",
       "image": "https://image.cnbcfm.com/api/v1/image/108335537-1784139358688-gettyimages-2285617125-HOUSING_STARTS.jpeg?v=1784140747&w=1920&h=1080",
       "publishedAt": "2026-09-23T17:58:47Z",
-      "category": "business",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -2122,7 +2122,7 @@
       "url": "https://www.fodors.com/news/photos/passenger-says-united-made-her-sit-next-to-man-pleasuring-himself",
       "image": "https://www.fodors.com/wp-content/uploads/2026/09/united-airlines_david-syphers-C6vFrs_7CSk-unsplash.jpg",
       "publishedAt": "2026-09-23T17:44:52Z",
-      "category": "business",
+      "category": "headlines",
       "region": "United States"
     },
     {
@@ -2210,7 +2210,7 @@
       "url": "https://www.espn.com/college-football/story/_/id/50001346/protect-college-sports-act-truths-myths-congress",
       "image": "https://a1.espncdn.com/combiner/i?img=%2Fphoto%2F2026%2F0922%2Fr1720224_1296x729_16%2D9.jpg",
       "publishedAt": "2026-09-23T17:23:00Z",
-      "category": "sports",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -2221,7 +2221,7 @@
       "url": "https://gizmodo.com/qwenbook-ai-laptop-snapdragon-summit-2000816119",
       "image": "https://gizmodo.com/app/uploads/2026/09/qwenbook-laptop-3-1200x675.jpg",
       "publishedAt": "2026-09-23T17:15:21Z",
-      "category": "entertainment",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -2254,7 +2254,7 @@
       "url": "https://investinglive.com/news/us-treasury-sells-70-billion-of-5-year-notes-at-a-high-yield-of-5-033/",
       "image": "https://investinglive.com/cms/media/Processed/Categories/featured/Bond%20Auction-featured-1790183159.jpg?width=960&format=webp",
       "publishedAt": "2026-09-23T17:07:38Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -2265,7 +2265,7 @@
       "url": "https://dailycaller.com/2026/09/23/donald-trump-xi-jinping-china-christian-persecution-summit-joseph-zen-jimmy-lai",
       "image": "https://images.dailycaller.com/image/width=1280,height=549,fit=cover,format=webp,f=auto/https://cdn01.dailycaller.com/wp-content/uploads/2026/09/GettyImages-2275740840%202.jpg",
       "publishedAt": "2026-09-23T16:56:49Z",
-      "category": "general",
+      "category": "politics",
       "region": "Hong Kong"
     },
     {
@@ -2276,7 +2276,7 @@
       "url": "https://www.cnbc.com/2026/09/23/market-sees-next-fed-hike-in-october-following-barr-comments-hot-inflation.html",
       "image": "https://image.cnbcfm.com/api/v1/image/108266509-17713617732026-02-17t205111z_763116163_rc2snja4vlq2_rtrmadp_0_usa-fed-barr.jpeg?v=1790185071&w=1920&h=1080",
       "publishedAt": "2026-09-23T16:56:22Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -2298,7 +2298,7 @@
       "url": "https://www.foxbusiness.com/politics/tech-giant-ceo-announces-attend-trump-xi-state-dinner",
       "image": "https://a57.foxnews.com/static.foxbusiness.com/foxbusiness.com/content/uploads/2026/09/0/0/trump-su-xi-split.jpg?ve=1&tl=1",
       "publishedAt": "2026-09-23T16:51:00Z",
-      "category": "business",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -2375,7 +2375,7 @@
       "url": "https://unlisted.careers/ghost-jobs/report/2026-09",
       "image": "https://unlisted.careers/ghost-jobs/report/2026-09/opengraph-image?5cc30c15fcbab117",
       "publishedAt": "2026-09-23T16:35:34Z",
-      "category": "finance",
+      "category": "business",
       "region": "Australia"
     },
     {
@@ -2386,7 +2386,7 @@
       "url": "https://thenextweb.com/news/openai-global-ai-standards-us-lead-rsi",
       "image": "https://media.thenextweb.com/2026/09/sam-altman-japan-prime-ministers-office-february-2025.jpg",
       "publishedAt": "2026-09-23T16:35:07Z",
-      "category": "general",
+      "category": "technology",
       "region": "Australia"
     },
     {
@@ -2408,7 +2408,7 @@
       "url": "https://www.foxnews.com/opinion/trump-xi-summit-should-make-sure-american-strength-delivers-american-results",
       "image": "https://static.foxnews.com/foxnews.com/content/uploads/2026/05/donald-trump-xi-jinping-beijing-china-visit-fox-news-014.jpg",
       "publishedAt": "2026-09-23T16:19:19Z",
-      "category": "headlines",
+      "category": "politics",
       "region": "Hong Kong"
     },
     {
@@ -2463,7 +2463,7 @@
       "url": "https://247wallst.com/investing/2026/09/23/10-gambling-disasters-that-wiped-out-millions/",
       "image": "https://s.yimg.com/lo/mysterio/api/62b7f39bca79a6e3ce10e4808c5e88e65764435620e11f543cacc7ced19fcdaa/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2F24_7_wall_st__718%2Ff8ad6651f352666bd4eda48ca613683a.jpg",
       "publishedAt": "2026-09-23T16:05:38Z",
-      "category": "sports",
+      "category": "finance",
       "region": "Hong Kong"
     },
     {
@@ -2518,7 +2518,7 @@
       "url": "https://www.wafb.com/2026/09/23/landry-declares-emergency-help-farmers-loggers-cope-with-record-diesel-prices/",
       "image": "https://gray-wafb-prod.gtv-cdn.com/resizer/v2/5KTL2SCY6VAG5EYEIAIAOWAQ5I.png?auth=c3e7f8cd397e04e9ab38c05c1d2b6a4ae2e42664ec7f5ff9f0b7cd5e8d69c9a7&width=1200&height=600&smart=true",
       "publishedAt": "2026-09-23T15:46:00Z",
-      "category": "business",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -2540,7 +2540,7 @@
       "url": "https://www.theverge.com/news/999404/xbox-mythic-achievement-feature",
       "image": "https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25283724/STK048_XBOX_C.jpg?quality=90&strip=all&crop=0%2C9.9676601489831%2C100%2C80.064679702034&w=1200",
       "publishedAt": "2026-09-23T15:45:11Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -2562,7 +2562,7 @@
       "url": "https://www.wsj.com/business/energy-oil/u-s-crude-oil-stockpiles-post-unexpected-build-8acd4d96",
       "image": "https://images.wsj.net/im-47912468/social",
       "publishedAt": "2026-09-23T15:44:36Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -2584,7 +2584,7 @@
       "url": "https://www.polygon.com/target-pokemon-event-near-me-30th-anniversary-tcg-store-hours-promo/",
       "image": "https://static0.polygonimages.com/wordpress/wp-content/uploads/chorus/uploads/chorus_asset/file/24247533/sunmoon1.jpg?w=1600&h=900&fit=crop",
       "publishedAt": "2026-09-23T15:41:32Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -2628,7 +2628,7 @@
       "url": "https://www.barrons.com/articles/ionq-stock-nvidia-quantum-computing-partnership-bda1cad5",
       "image": "https://images.barrons.com/im-08901332/social",
       "publishedAt": "2026-09-23T15:33:00Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -2639,7 +2639,7 @@
       "url": "https://kotaku.com/dragon-age-origins-the-fade-mark-darrah-2000736731",
       "image": "https://kotaku.com/app/uploads/2026/09/the-fade.jpg",
       "publishedAt": "2026-09-23T15:30:53Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -2672,7 +2672,7 @@
       "url": "https://www.ign.com/articles/72-year-old-pokemon-collector-arrested-after-illegally-tracking-woman-who-restocked-local-stores",
       "image": "https://assets1.ignimgs.com/2018/10/15/p001-1539586785236.jpg?width=1280&format=jpg&auto=webp&quality=80",
       "publishedAt": "2026-09-23T15:27:27Z",
-      "category": "technology",
+      "category": "social",
       "region": "United States"
     },
     {
@@ -2694,7 +2694,7 @@
       "url": "https://www.forbes.com/sites/paultassi/2026/09/23/wolverine-review-ps5-sharp-claws-that-dull-in-time/",
       "image": null,
       "publishedAt": "2026-09-23T15:14:52Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -2716,7 +2716,7 @@
       "url": "https://www.nbcnews.com/world/asia/trump-xi-summit-meet-white-house-tensions-taiwan-trade-ai-rcna598073",
       "image": "https://media-cldnry.s-nbcnews.com/image/upload/t_nbcnews-fp-1200-630,f_auto,q_auto:best/rockcms/2026-09/260923-trump-xi-mb-1038-891c09.jpg",
       "publishedAt": "2026-09-23T15:03:16Z",
-      "category": "social",
+      "category": "politics",
       "region": "Hong Kong"
     },
     {
@@ -2727,7 +2727,7 @@
       "url": "https://www.theverge.com/gadgets/999380/una-watch-sports-gps-modular",
       "image": "https://platform.theverge.com/wp-content/uploads/sites/2/2026/09/UNA-takes-on-Apple-and-Garmin-.jpg?quality=90&strip=all&crop=0%2C32.361767334951%2C100%2C35.276465330098&w=1200",
       "publishedAt": "2026-09-23T15:01:16Z",
-      "category": "sports",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -2749,7 +2749,7 @@
       "url": "https://www.bbc.com/news/articles/c6p3kxpp8lezo",
       "image": "https://ichef.bbci.co.uk/news/1024/branded_news/4148/live/6d68fee0-b745-11f1-aa9c-3d062fa3aea7.jpg",
       "publishedAt": "2026-09-23T14:35:30Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -2760,7 +2760,7 @@
       "url": "https://www.buzzfeed.com/beccamonaghan/celebrities-speaking-out-extreme-wealth-billionaires",
       "image": "https://img.buzzfeed.com/buzzfeed-static/static/2026-09/23/10/thumb/a4DjEcGOj.jpg?crop=1245:830;3,0&resize=1250:830",
       "publishedAt": "2026-09-23T14:31:02Z",
-      "category": "politics",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -2782,7 +2782,7 @@
       "url": "https://www.ign.com/articles/marvel-rivals-needs-an-intervention",
       "image": "https://assets-prd.ignimgs.com/2026/09/23/marvelrivals-intervention-blogroll-1790150256267.jpg?width=1280&format=jpg&auto=webp&quality=80",
       "publishedAt": "2026-09-23T14:30:00Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -2793,7 +2793,7 @@
       "url": "https://techcrunch.com/2026/09/23/youtube-adds-new-creator-tools-like-video-a-b-testing-dynamic-thumbnails-and-live-dubbing/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/09/Event-Made-On-Logo-Creator-Graphic-White.jpg?resize=1200,675",
       "publishedAt": "2026-09-23T14:30:00Z",
-      "category": "business",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -2859,7 +2859,7 @@
       "url": "https://www.cbsnews.com/news/mortgage-rates-top-7-percent-mba/",
       "image": "https://assets3.cbsnewsstatic.com/hub/i/r/2026/09/23/d9613d48-9602-4f8c-acbe-24fae0ad3f4d/thumbnail/1200x630/ab5521e536dc8f1652e18318304199f9/gettyimages-2293372184.jpg",
       "publishedAt": "2026-09-23T14:10:00Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -2925,7 +2925,7 @@
       "url": "https://www.entrepreneur.com/buying-a-franchise/months-after-the-lettuce-parasite-outbreak-taco-bell-is-still-struggling-with-lower-traffic",
       "image": "https://www.entrepreneur.com/wp-content/uploads/sites/2/2026/09/taco-bell-iceberg-lettuce-outbreak-0926-g-2287702644.jpg?resize=1024,655",
       "publishedAt": "2026-09-23T14:00:00Z",
-      "category": "headlines",
+      "category": "business",
       "region": "United States"
     },
     {
@@ -3035,7 +3035,7 @@
       "url": "https://nintendoeverything.com/stellar-blade-will-let-players-turn-off-frame-generation-on-nintendo-switch-2/",
       "image": "https://nintendoeverything.com/wp-content/uploads/Stellar-Blade-Switch-2-turn-off-frame-generation.jpg",
       "publishedAt": "2026-09-23T13:36:24Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -3057,7 +3057,7 @@
       "url": "https://www.alternet.org/trump-tennessee-diesel-prices/",
       "image": "https://www.alternet.org/media-library/image-via-shutterstock.png?id=67818494&width=1200&height=600&coordinates=0%2C60%2C0%2C60",
       "publishedAt": "2026-09-23T13:32:00Z",
-      "category": "business",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -3112,7 +3112,7 @@
       "url": "https://thenextweb.com/news/drone-maker-tekever-6-4bn-valuation-series-d",
       "image": "https://media.thenextweb.com/2026/09/twin-propeller-surveillance-drone-airfield-runway.jpg",
       "publishedAt": "2026-09-23T13:16:03Z",
-      "category": "technology",
+      "category": "business",
       "region": "Global"
     },
     {
@@ -3123,7 +3123,7 @@
       "url": "https://www.forbes.com/sites/paultassi/2026/09/23/more-information-about-bungies-destiny-2-content-unvaulting-plans/",
       "image": null,
       "publishedAt": "2026-09-23T13:10:44Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -3145,7 +3145,7 @@
       "url": "https://aftermath.site/xbox-bethesda-obsidian-fallout/",
       "image": "https://storage.ghost.io/c/30/f5/30f5b1bb-84ee-4c26-b446-fb9a5e512994/content/images/size/w1200/2026/09/newvegas.jpg",
       "publishedAt": "2026-09-23T13:02:39Z",
-      "category": "technology",
+      "category": "business",
       "region": "United States"
     },
     {
@@ -3167,7 +3167,7 @@
       "url": "https://www.space.com/space-exploration/launches-spacecraft/spacexs-next-astronaut-launch-for-nasa-now-set-for-oct-1-after-delay",
       "image": "https://cdn.mos.cms.futurecdn.net/rq9eiJEFdWSFTSwzG5mWPS-1589-80.jpg",
       "publishedAt": "2026-09-23T13:00:00Z",
-      "category": "technology",
+      "category": "science",
       "region": "United States"
     },
     {
@@ -3189,7 +3189,7 @@
       "url": "https://www.bloomberg.com/news/articles/2026-09-23/startup-hubble-reaches-unicorn-status-for-space-based-bluetooth",
       "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iPUS9OkEX05A/v9/1200x718.jpg",
       "publishedAt": "2026-09-23T13:00:00Z",
-      "category": "business",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -3211,7 +3211,7 @@
       "url": "https://www.trueachievements.com/news/gears-of-war-e-day-liquid-death",
       "image": "https://www.trueachievements.com/imgs/178637/gears-of-war-e-day-liquid-death.jpg",
       "publishedAt": "2026-09-23T12:46:58Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -3244,7 +3244,7 @@
       "url": "https://www.playstationlifestyle.net/2026/09/23/ps5-rpg-fading-echo-free-demo-ps-store/",
       "image": "https://www.playstationlifestyle.net/wp-content/uploads/sites/9/2026/09/ps5-rpg-fading-echo.jpg?resize=1200,630",
       "publishedAt": "2026-09-23T12:39:06Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -3266,7 +3266,7 @@
       "url": "https://bleacherreport.com/articles/25502195-travis-kelce-reacts-taylor-swift-memes-after-viral-video-celebration-showing-wedding-ring",
       "image": "https://gsp-image-cdn.wmsports.io/cms/prod/bleacher-report/ap_images/2026-09/750106f0c9154365b9fd39758840960b/APTOPIX_Colts_Chiefs_Football_35312_2150x1210_(0,152).jpg?w=1120&h=630",
       "publishedAt": "2026-09-23T12:35:09Z",
-      "category": "entertainment",
+      "category": "sports",
       "region": "United States"
     },
     {
@@ -3299,7 +3299,7 @@
       "url": "https://www.barchart.com/story/news/4753927/a-950-million-reason-to-buy-spacex-stock",
       "image": null,
       "publishedAt": "2026-09-23T12:19:45Z",
-      "category": "science",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -3354,7 +3354,7 @@
       "url": "https://www.businessinsider.com/reddit-ramping-up-war-on-marketing-slop-2026-9#article",
       "image": "https://i.insider.com/6ab2c585eb722541126794ca?width=1200&format=jpeg",
       "publishedAt": "2026-09-23T12:05:35Z",
-      "category": "business",
+      "category": "social",
       "region": "Global"
     },
     {
@@ -3376,7 +3376,7 @@
       "url": "https://thenextweb.com/news/volkswagen-airconsole-in-car-gaming-2027-models",
       "image": "https://media.thenextweb.com/2026/09/volkswagen-interior-tetris-airconsole-infotainment.jpg",
       "publishedAt": "2026-09-23T12:00:25Z",
-      "category": "entertainment",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -3387,7 +3387,7 @@
       "url": "https://www.forbes.com/sites/the-prompt/2026/09/23/amazons-68-billion-reason-to-block-metas-muse/",
       "image": null,
       "publishedAt": "2026-09-23T12:00:00Z",
-      "category": "business",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -3442,7 +3442,7 @@
       "url": "https://www.globalsecurity.org/wmd/library/news/china/2026/09/china-260923-housecfa-democrats01.htm",
       "image": null,
       "publishedAt": "2026-09-23T12:00:00Z",
-      "category": "health",
+      "category": "politics",
       "region": "Hong Kong"
     },
     {
@@ -3453,7 +3453,7 @@
       "url": "https://www.globalsecurity.org/wmd/library/news/china/2026/09/china-260923-globaltimes01.htm",
       "image": null,
       "publishedAt": "2026-09-23T12:00:00Z",
-      "category": "social",
+      "category": "politics",
       "region": "Hong Kong"
     },
     {
@@ -3486,7 +3486,7 @@
       "url": "https://about.fb.com/news/2026/09/introducing-ray-ban-meta-audio-glasses-new-styles-plus-muse/",
       "image": "https://about.fb.com/wp-content/uploads/2026/09/Introducing-Ray-Ban-Meta-Audio-and-More-AI-Glasses-Styles_Header.jpg?w=1200",
       "publishedAt": "2026-09-23T11:36:25Z",
-      "category": "sports",
+      "category": "technology",
       "region": "Hong Kong"
     },
     {
@@ -3596,7 +3596,7 @@
       "url": "https://www.mining-technology.com/news/global-lithium-237m-sid-titan-australia-mining/",
       "image": "https://s.yimg.com/lo/mysterio/api/a24d95d20a3e84e8f67262b0847b42cb47e3f27cffb57fb6c81df9f282cd7c05/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmining_technology_700%2F803f397a4e5c14ac50f365d90ce6c3fd.jpg",
       "publishedAt": "2026-09-23T10:58:49Z",
-      "category": "technology",
+      "category": "business",
       "region": "Australia"
     },
     {
@@ -3618,7 +3618,7 @@
       "url": "https://www.coindesk.com/markets/2026/09/23/bitcoin-consolidates-near-usd86-000-as-rally-narrows-and-brent-slips-below-usd100",
       "image": "https://cdn.sanity.io/images/s3y3vcno/production/b804d97a1858ee40b7d0fa8713daab4042685a80-1920x1080.png?auto=format&q=75",
       "publishedAt": "2026-09-23T10:28:11Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -3629,7 +3629,7 @@
       "url": "https://techxplore.com/news/2026-09-humanoid-robots-narrow-gaps-obstacles.html",
       "image": "https://scx2.b-cdn.net/gfx/news/hires/2026/ai-system-helps-humano.jpg",
       "publishedAt": "2026-09-23T10:20:30Z",
-      "category": "science",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -3651,7 +3651,7 @@
       "url": "https://www.sciencealert.com/the-mind-control-cat-parasite-manipulating-you-may-have-a-simple-explanation",
       "image": "https://www.sciencealert.com/images/2026/09/cat-eye-large.jpg",
       "publishedAt": "2026-09-23T10:03:31Z",
-      "category": "health",
+      "category": "science",
       "region": "United States"
     },
     {
@@ -3673,7 +3673,7 @@
       "url": "https://slate.com/advice/2026/09/family-advice-husband-small-business-hiring.html",
       "image": "https://compote.slate.com/images/f2cff841-1e90-4afd-b5ca-59fd6ee61f04.jpeg?crop=1560%2C1040%2Cx0%2Cy0&width=1560",
       "publishedAt": "2026-09-23T10:00:00Z",
-      "category": "technology",
+      "category": "business",
       "region": "United States"
     },
     {
@@ -3684,7 +3684,7 @@
       "url": "https://www.gamingbible.com/news/playstation-6-project-helix-new-patents-195720-20260923",
       "image": "https://resizer.ladbiblegroup.com/ogimage/v3/assets/bltbc1876152fcd9f07/blt1843d29978558b8d/6ab394af9dee9de7db51ce6a/xbox_playstation.jpg",
       "publishedAt": "2026-09-23T10:00:00Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -3706,7 +3706,7 @@
       "url": "https://www.dailymail.com/lifestyle/fitness-wellbeing/article-16075905/From-muscle-bound-gym-bros-midlife-women-searches-creatine-300-females-drive-massive-surge-supplement-worth-hype.html",
       "image": "https://i.dailymail.com/1s/2026/09/23/09/110818279-0-image-a-2_1790151679950.jpg",
       "publishedAt": "2026-09-23T09:07:16Z",
-      "category": "general",
+      "category": "health",
       "region": "Global"
     },
     {
@@ -3750,7 +3750,7 @@
       "url": "http://www.vulture.com/article/ari-emanuel-interview-memoir-entourage.html",
       "image": "https://pyxis.nymag.com/v1/imgs/127/568/61b10f21c9fc90badb7864408e93459b92-ariemanuel_lede.1x.rsocial.w1200.jpg",
       "publishedAt": "2026-09-23T09:00:15Z",
-      "category": "business",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -3761,7 +3761,7 @@
       "url": "https://www.businessinsider.com/amazon-boomerang-hiring-recruiting-former-employees-laid-off-2026-9#article",
       "image": "https://i.insider.com/6ab2d2a4d15f8a572974949e?width=1200&format=jpeg",
       "publishedAt": "2026-09-23T09:00:02Z",
-      "category": "finance",
+      "category": "business",
       "region": "United States"
     },
     {
@@ -3772,7 +3772,7 @@
       "url": "https://www.businessinsider.com/jared-kaplan-ai-safety-concerns-last-year-gain-traction-anthropic-2026-9#article",
       "image": "https://i.insider.com/6aadc9224a3706ac06f850e3?width=1200&format=jpeg",
       "publishedAt": "2026-09-23T09:00:00Z",
-      "category": "business",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -3805,7 +3805,7 @@
       "url": "https://www.businessinsider.com/generational-tax-battle-boomers-millennials-2026-9#article",
       "image": "https://i.insider.com/6ab2b089265e3f8e338f5a30?width=1200&format=jpeg",
       "publishedAt": "2026-09-23T08:47:01Z",
-      "category": "social",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -3816,7 +3816,7 @@
       "url": "https://insider-gaming.com/activision-is-rebooting-halo-franchise-after-xbox-changes-its-claimed/",
       "image": "https://insider-gaming.com/wp-content/uploads/2026/06/Complete-Halo-Campaign-Evolved-Trophy-List\u2014How-To-Get-All-Trophies-Achievements-guide.jpg",
       "publishedAt": "2026-09-23T08:46:58Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -3827,7 +3827,7 @@
       "url": "https://fortune.com/2026/09/23/andrew-forrest-fortescue-decarbonization-plan-ukraine-reconstruction/",
       "image": "https://fortune.com/img-assets/wp-content/uploads/2026/09/FOR-Forrest-social-thumbnail.jpg?resize=1200,600",
       "publishedAt": "2026-09-23T08:30:00Z",
-      "category": "finance",
+      "category": "business",
       "region": "Australia"
     },
     {
@@ -3838,7 +3838,7 @@
       "url": "https://www.thestreet.com/economy/fuel-crisis-diesel-prices",
       "image": null,
       "publishedAt": "2026-09-23T08:03:00Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -3849,7 +3849,7 @@
       "url": "https://hackaday.com/2026/09/23/a-javascript-os-for-the-esp32/",
       "image": "https://hackaday.com/wp-content/uploads/2026/09/kryonos-featured.jpg",
       "publishedAt": "2026-09-23T08:00:12Z",
-      "category": "general",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -3882,7 +3882,7 @@
       "url": "https://yro.slashdot.org/story/26/09/23/0621252/microsoft-helps-take-down-massive-automated-ai-powered-phishing-as-a-service-platform",
       "image": "https://a.fsdn.com/sd/topics/microsoft_64100.png",
       "publishedAt": "2026-09-23T07:04:00Z",
-      "category": "business",
+      "category": "technology",
       "region": "Australia"
     },
     {
@@ -4168,7 +4168,7 @@
       "url": "https://www.bloomberg.com/news/articles/2026-09-22/xi-unlikely-to-bring-ceos-to-summit-where-trump-is-seeking-deals",
       "image": "https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iUDnYgNT.S2o/v0/1200x800.jpg",
       "publishedAt": "2026-09-23T02:34:00Z",
-      "category": "business",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -4322,7 +4322,7 @@
       "url": "https://advocacy.consumerreports.org/press_release/seattle-city-council-votes-to-ban-surveillance-pricing-in-sale-of-groceries/",
       "image": "https://article.images.consumerreports.org/f_auto/prod/content/dam/special-graphics/CR-generic-lowres",
       "publishedAt": "2026-09-23T00:43:27Z",
-      "category": "business",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -4421,7 +4421,7 @@
       "url": "https://nintendoeverything.com/zelda-ocarina-of-time-nintendo-switch-2-pre-order-bonus-guide/",
       "image": "https://nintendoeverything.com/wp-content/uploads/Zelda-Ocarina-of-Time-pre-order-bonus-guide.jpg",
       "publishedAt": "2026-09-23T00:11:21Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -4949,7 +4949,7 @@
       "url": "https://www.seattletimes.com/business/starbucks/starbucks-closes-another-downtown-seattle-store/",
       "image": "https://images.seattletimes.com/wp-content/uploads/2026/09/09222026_tzr_tzr_135125.jpg?d=1200x630",
       "publishedAt": "2026-09-22T22:01:59Z",
-      "category": "technology",
+      "category": "business",
       "region": "United States"
     },
     {
@@ -5026,7 +5026,7 @@
       "url": "https://www.marketwatch.com/story/the-nasdaqs-rapid-rise-to-a-record-is-sending-a-message-to-investors-dont-wait-for-a-pullback-to-buy-5f533ed8",
       "image": "https://images.mktw.net/im-49923360/social",
       "publishedAt": "2026-09-22T21:44:00Z",
-      "category": "business",
+      "category": "finance",
       "region": "United States"
     },
     {
@@ -5059,7 +5059,7 @@
       "url": "https://www.newsweek.com/medicare-update-beneficiaries-just-got-new-lab-payment-rates-12475292",
       "image": "https://assets.newsweek.com/wp-content/uploads/2026/09/GettyImages-2296058064.jpg?w=1200&crop=1",
       "publishedAt": "2026-09-22T21:37:00Z",
-      "category": "business",
+      "category": "health",
       "region": "United States"
     },
     {
@@ -5136,7 +5136,7 @@
       "url": "https://www.cbsnews.com/news/andreessen-horowitz-ai-school-college-alternative/",
       "image": "https://assets1.cbsnewsstatic.com/hub/i/r/2026/09/22/fd73b299-6d1e-4497-9619-f7edbe685d98/thumbnail/1200x630/4da49217ab15fa44cffc49c959dc3bc3/gettyimages-2252237285.jpg",
       "publishedAt": "2026-09-22T21:25:00Z",
-      "category": "business",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -5367,7 +5367,7 @@
       "url": "https://arstechnica.com/tech-policy/2026/09/cities-across-us-oppose-trump-fcc-plan-to-preempt-local-broadband-rules/",
       "image": "https://cdn.arstechnica.net/wp-content/uploads/2022/09/getty-network-map-1152x648.jpg",
       "publishedAt": "2026-09-22T20:38:30Z",
-      "category": "business",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -5576,7 +5576,7 @@
       "url": "https://www.kmvt.com/2026/09/22/looksmaxxing-influencer-clavicular-charged-with-drugging-raping-teen-girl-court-records-show/",
       "image": "https://gray-kmvt-prod.gtv-cdn.com/resizer/v2/DRNGSH24Q5A3DFPOPXSC7M3MHI.jpg?auth=24b62fc87873470fc6cf1f9f318e02fca1b25e7f485aa40d856b4d6670a49497&width=1200&height=600&smart=true",
       "publishedAt": "2026-09-22T20:03:00Z",
-      "category": "entertainment",
+      "category": "social",
       "region": "United States"
     },
     {
@@ -5873,7 +5873,7 @@
       "url": "https://www.playstationlifestyle.net/2026/09/22/well-dweller-ps5-launch-playstation-store/",
       "image": "https://www.playstationlifestyle.net/wp-content/uploads/sites/9/2026/09/well-dweller.jpg?resize=1200,630",
       "publishedAt": "2026-09-22T19:25:04Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -6181,7 +6181,7 @@
       "url": "https://www.inc.com/aaron-mok/chatgpt-and-claude-just-ditched-their-most-annoying-time-wasting-habit/91408954",
       "image": null,
       "publishedAt": "2026-09-22T18:47:45Z",
-      "category": "business",
+      "category": "technology",
       "region": "United States"
     },
     {
@@ -7501,7 +7501,7 @@
       "url": "https://financialpost.com/pmn/business-wire-news-releases-pmn/quaise-energy-selected-for-up-to-25-million-in-u-s-department-of-energy-support-to-advance-worlds-first-commercial-superhot-geothermal-power-plant",
       "image": null,
       "publishedAt": "2026-09-22T13:31:03Z",
-      "category": "general",
+      "category": "business",
       "region": "Global"
     },
     {
@@ -8139,7 +8139,7 @@
       "url": "https://www.mindbodygreen.com/articles/new-research-points-to-iron-accumulation-as-driver-of-aging-what-is-ferro-aging",
       "image": "https://s.yimg.com/lo/mysterio/api/8a898e4df93dae054d065b7e175690dde0a3cfdfcff216f996ce248971a65b3a/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fmindbodygreen_articles_658%2F58a4b099b30efe2307a864e72890971a.jpg",
       "publishedAt": "2026-09-22T10:06:00Z",
-      "category": "science",
+      "category": "health",
       "region": "United States"
     },
     {
@@ -8150,7 +8150,7 @@
       "url": "https://www.sciencealert.com/one-critical-factor-predicts-longevity-better-than-diet-or-exercise-study-reveals",
       "image": "https://www.sciencealert.com/images/2026/09/young-person-holding-the-hand-of-an-elderly-person.jpg",
       "publishedAt": "2026-09-22T10:03:17Z",
-      "category": "health",
+      "category": "science",
       "region": "United States"
     },
     {
@@ -8348,7 +8348,7 @@
       "url": "https://www.npr.org/2026/09/22/nx-s1-5971441/review-control-resonant-silent-hill-best-biggest-september-games",
       "image": "https://npr.brightspotcdn.com/dims3/default/strip/false/crop/1920x1080+0+0/resize/1400/quality/85/format/jpeg/?url=http%3A%2F%2Fnpr-brightspot.s3.amazonaws.com%2Fc2%2F64%2Fd25c89dd4cc499cfe858f1acaf0a%2Fseptember-games.jpg",
       "publishedAt": "2026-09-22T09:00:00Z",
-      "category": "technology",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -9217,7 +9217,7 @@
       "url": "https://cryptobriefing.com/ligent-technologies-hong-kong-ipo/",
       "image": "https://static.cryptobriefing.com/wp-content/uploads/2020/12/02092245/link-bull-1024x538.jpg",
       "publishedAt": "2026-09-21T23:38:53Z",
-      "category": "general",
+      "category": "finance",
       "region": "Hong Kong"
     },
     {
@@ -11813,7 +11813,7 @@
       "url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3004002",
       "image": "https://journals.plos.org/plosbiology/article/figure/image?id=10.1371/journal.pbio.3004002.g008&size=inline",
       "publishedAt": "2026-09-21T14:00:00Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
@@ -11824,7 +11824,7 @@
       "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1014740",
       "image": "https://journals.plos.org/ploscompbiol/article/figure/image?id=10.1371/journal.pcbi.1014740.g013&size=inline",
       "publishedAt": "2026-09-21T14:00:00Z",
-      "category": "general",
+      "category": "health",
       "region": "Global"
     },
     {
@@ -12396,7 +12396,7 @@
       "url": "https://www.cisa.gov/news-events/bulletins/sb26-264",
       "image": null,
       "publishedAt": "2026-09-21T11:58:01Z",
-      "category": "general",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -13793,7 +13793,7 @@
       "url": "https://www.nature.com/articles/s41591-026-04654-6",
       "image": "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41591-026-04654-6/MediaObjects/41591_2026_4654_Fig1_HTML.png",
       "publishedAt": "2026-09-21T00:00:00Z",
-      "category": "general",
+      "category": "health",
       "region": "Global"
     },
     {
@@ -20239,7 +20239,7 @@
       "url": "https://www.edf.org/media/colorado-becomes-first-state-fully-adopt-2024-epa-methane-standards",
       "image": null,
       "publishedAt": "2026-09-18T23:25:28Z",
-      "category": "general",
+      "category": "politics",
       "region": "Global"
     },
     {
@@ -20492,7 +20492,7 @@
       "url": "https://www.bbc.co.uk/news/articles/c63d7lexyym1o",
       "image": "https://ichef.bbci.co.uk/ace/branded_news/1200/cpsprodpb/a1d9/live/919d1120-b3ad-11f1-baa2-f576e6b1431d.jpg",
       "publishedAt": "2026-09-18T22:10:24Z",
-      "category": "social",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -21405,7 +21405,7 @@
       "url": "https://wwd.com/sourcing-journal/logistics/zipline-funding-1-billion-drone-drones-last-mile-delivery-faa-regulations-1239245201/",
       "image": "https://s.yimg.com/lo/mysterio/api/4257151f2aadda8613f733ceaac7c5a22488014140b20eb15c70b2f8c438b323/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_webp/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fsourcing_journal_735%2Fafc7d3e57aec038e7481a47975387120.jpg",
       "publishedAt": "2026-09-18T18:41:33Z",
-      "category": "general",
+      "category": "business",
       "region": "Global"
     },
     {
@@ -21416,7 +21416,7 @@
       "url": "http://wwd.com/sourcing-journal/logistics/zipline-funding-1-billion-drone-drones-last-mile-delivery-faa-regulations-1239245201/",
       "image": "https://wwd.com/wp-content/uploads/2026/09/ziplinedrone.jpeg?w=1000&h=563&crop=1",
       "publishedAt": "2026-09-18T18:41:33Z",
-      "category": "general",
+      "category": "business",
       "region": "Global"
     },
     {
@@ -21625,7 +21625,7 @@
       "url": "https://www.cnet.com/tech/gaming/todays-wordle-hints-answer-and-help-for-sept-19-1918/",
       "image": "https://www.cnet.com/wp-content/uploads/sites/2/20480816-214e-4fcc-a9b4-b02f0ac71e7c.jpg",
       "publishedAt": "2026-09-18T18:19:22Z",
-      "category": "sports",
+      "category": "entertainment",
       "region": "Global"
     },
     {
@@ -23572,7 +23572,7 @@
       "url": "https://machinelearningmastery.com/build-and-understand-a-vector-database-from-scratch-in-10-easy-steps/",
       "image": "https://machinelearningmastery.com/wp-content/uploads/2026/09/mlm-build-a-vector-database-from-scratch-in-10-easy-steps-feature.png",
       "publishedAt": "2026-09-18T12:00:03Z",
-      "category": "general",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -24078,7 +24078,7 @@
       "url": "https://physics.aps.org/articles/v19/127",
       "image": "https://physics.aps.org/assets/733e66c4-6372-454d-9405-31a9240c2fae/e127_1_thumb.png",
       "publishedAt": "2026-09-18T10:00:00Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
@@ -25332,7 +25332,7 @@
       "url": "https://techcrunch.com/2026/09/17/khosla-backed-mazama-energy-just-raised-135m-to-drill-deeper-into-super-hot-rock-geothermal/",
       "image": "https://techcrunch.com/wp-content/uploads/2025/10/Mazama-oregon.jpeg?resize=1200,675",
       "publishedAt": "2026-09-18T00:03:56Z",
-      "category": "general",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -28786,7 +28786,7 @@
       "url": "https://financialpost.com/globe-newswire/mazama-energy-raises-135-million-to-scale-the-worlds-hottest-engineered-geothermal-system",
       "image": null,
       "publishedAt": "2026-09-17T13:02:56Z",
-      "category": "general",
+      "category": "business",
       "region": "Global"
     },
     {
@@ -29820,7 +29820,7 @@
       "url": "https://thenextweb.com/news/eu-kids-act-social-media-under-13-ban",
       "image": "https://media.thenextweb.com/2026/09/Ursula-von-der-Leyen-at-the-European-Parliament.jpg",
       "publishedAt": "2026-09-17T09:23:34Z",
-      "category": "social",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -30953,7 +30953,7 @@
       "url": "https://www.cnet.com/tech/gaming/todays-wordle-hints-answer-and-help-for-sept-17-1916-2/",
       "image": "https://www.cnet.com/wp-content/uploads/sites/2/20480816-214e-4fcc-a9b4-b02f0ac71e7c.jpg",
       "publishedAt": "2026-09-17T00:14:33Z",
-      "category": "sports",
+      "category": "entertainment",
       "region": "Global"
     },
     {
@@ -33285,7 +33285,7 @@
       "url": "https://blogs.edf.org/energyexchange/2026/09/16/new-methane-data-show-the-risks-of-exempting-low-producing-wells/",
       "image": "https://blogs.edf.org/energyexchange/wp-content/blogs.dir/38/files//Marginal-well-policy-blog-image-scaled.jpg",
       "publishedAt": "2026-09-16T16:35:40Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
@@ -38092,7 +38092,7 @@
       "url": "https://www.nakedcapitalism.com/2026/09/coffee-break-armed-madhouse-ocean-presence-a-new-model-of-naval-power.html",
       "image": "https://www.nakedcapitalism.com/wp-content/uploads/2026/09/Major-navies.png",
       "publishedAt": "2026-09-15T18:00:32Z",
-      "category": "general",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -39489,7 +39489,7 @@
       "url": "https://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.3003934",
       "image": "https://journals.plos.org/plosbiology/article/figure/image?id=10.1371/journal.pbio.3003934.g007&size=inline",
       "publishedAt": "2026-09-15T14:00:00Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
@@ -46496,7 +46496,7 @@
       "url": "https://www.nature.com/articles/s41576-026-01012-7",
       "image": "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41576-026-01012-7/MediaObjects/41576_2026_1012_Fig1_HTML.png",
       "publishedAt": "2026-09-14T00:00:00Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
@@ -51083,7 +51083,7 @@
       "url": "https://securityaffairs.com/198905/ai/anthropic-ai-misuse-is-entering-a-new-phase-from-cybercrime-to-surveillance-propaganda-and-weapons.html",
       "image": "https://securityaffairs.com/wp-content/uploads/2026/02/Anthropic-Claude-Code-Security.png",
       "publishedAt": "2026-09-12T16:46:56Z",
-      "category": "general",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -57980,7 +57980,7 @@
       "url": "https://www.lifesciencesworld.com/do-murmurations-have-a-leader/",
       "image": null,
       "publishedAt": "2026-09-11T08:25:02Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
@@ -60565,7 +60565,7 @@
       "url": "https://techcrunch.com/2026/09/10/proxima-fusion-bets-e140m-on-a-critical-fusion-ingredient-dominated-by-asian-suppliers/",
       "image": "https://techcrunch.com/wp-content/uploads/2026/09/Proxima-Manufacturing-7.jpg?resize=1200,800",
       "publishedAt": "2026-09-10T18:55:37Z",
-      "category": "general",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -60576,7 +60576,7 @@
       "url": "https://biztoc.com/x/69564eaa82c253a0",
       "image": "https://biztoc.com/cdn/69564eaa82c253a0_s.webp",
       "publishedAt": "2026-09-10T18:49:31Z",
-      "category": "general",
+      "category": "technology",
       "region": "Global"
     },
     {
@@ -62479,7 +62479,7 @@
       "url": "https://journals.plos.org/plospathogens/article?id=10.1371/journal.ppat.1014540",
       "image": "https://journals.plos.org/plospathogens/article/figure/image?id=10.1371/journal.ppat.1014540.strk&size=inline",
       "publishedAt": "2026-09-10T14:00:00Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
@@ -72423,7 +72423,7 @@
       "url": "https://gizmodo.com/dolly-partons-sister-asks-people-to-stop-posting-ai-garbage-of-the-legendary-singer-2000808660",
       "image": "https://gizmodo.com/app/uploads/2026/09/dolly-parton-1992-1200x675.jpg",
       "publishedAt": "2026-09-08T18:45:26Z",
-      "category": "social",
+      "category": "entertainment",
       "region": "United States"
     },
     {
@@ -74304,7 +74304,7 @@
       "url": "https://journals.plos.org/plosgenetics/article?id=10.1371/journal.pgen.1012297",
       "image": "https://journals.plos.org/plosgenetics/article/figure/image?id=10.1371/journal.pgen.1012297.strk&size=inline",
       "publishedAt": "2026-09-08T14:00:00Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
@@ -96667,7 +96667,7 @@
       "url": "https://www.nature.com/articles/s41467-026-76589-y",
       "image": "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41467-026-76589-y/MediaObjects/41467_2026_76589_Fig1_HTML.png",
       "publishedAt": "2026-09-04T00:00:00Z",
-      "category": "general",
+      "category": "health",
       "region": "Global"
     },
     {
@@ -106545,7 +106545,7 @@
       "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1014729",
       "image": "https://journals.plos.org/ploscompbiol/article/figure/image?id=10.1371/journal.pcbi.1014729.g007&size=inline",
       "publishedAt": "2026-09-02T14:00:00Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
@@ -109592,7 +109592,7 @@
       "url": "https://www.nature.com/articles/s41467-026-77178-9.pdf",
       "image": null,
       "publishedAt": "2026-09-02T00:00:00Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
@@ -113189,7 +113189,7 @@
       "url": "https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1014707",
       "image": "https://journals.plos.org/ploscompbiol/article/figure/image?id=10.1371/journal.pcbi.1014707.g006&size=inline",
       "publishedAt": "2026-09-01T14:00:00Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
@@ -119866,7 +119866,7 @@
       "url": "https://fortune.com/2026/08/31/chinas-ai-ipo-boom-shein/",
       "image": "https://fortune.com/img-assets/wp-content/uploads/2026/08/AP26241236924705-e1788185078186.jpg?resize=1200,600",
       "publishedAt": "2026-08-31T14:12:37Z",
-      "category": "technology",
+      "category": "finance",
       "region": "Hong Kong"
     },
     {
@@ -128589,7 +128589,7 @@
       "url": "https://www.yahoo.com/news/politics/articles/know-trumps-deal-giving-us-162206463.html",
       "image": "https://s.yimg.com/lo/mysterio/api/255afb95bb9ba54811c76d9c0a5d87263da1d29e92c36e828de4be818a437079/lightyear_networkapi/resizefill_w1200%3Bquality_80%3Bformat_jpg/https%3A%2F%2Fmedia.zenfs.com%2Fen%2Fap.org%2F8b99dfe455441b0883279e8c446cff98.jpg",
       "publishedAt": "2026-08-29T16:22:06Z",
-      "category": "social",
+      "category": "politics",
       "region": "United States"
     },
     {
@@ -130316,7 +130316,7 @@
       "url": "https://www.metafilter.com/214319/Outback-becomes-wildlife-oasis-after-unbelievable-desert-rains",
       "image": "https://cdn.mefi.us/images/mefi/apple-touch-icon.png",
       "publishedAt": "2026-08-29T07:22:50Z",
-      "category": "social",
+      "category": "science",
       "region": "Australia"
     },
     {
@@ -137356,7 +137356,7 @@
       "url": "https://www.nature.com/articles/s41563-026-02723-2.pdf",
       "image": "https://media.springernature.com/m685/springer-static/image/art%3A10.1038%2Fs41563-026-02723-2/MediaObjects/41563_2026_2723_Fig1_HTML.png",
       "publishedAt": "2026-08-28T00:00:00Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
@@ -147421,7 +147421,7 @@
       "url": "https://longreads.com/2026/08/26/human-brain-organoids/",
       "image": null,
       "publishedAt": "2026-08-26T14:00:00Z",
-      "category": "general",
+      "category": "science",
       "region": "Global"
     },
     {
